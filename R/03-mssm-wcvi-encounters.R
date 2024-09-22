@@ -1,5 +1,5 @@
 if (!('mssm_loaded' %in% ls())) {
-  source(here::here('report', 'mssm-tech-report', 'R', '00-load.R'))
+  source(here::here('R', '00-load.R'))
 }
 
 syn_yrs <- spp_dat |>

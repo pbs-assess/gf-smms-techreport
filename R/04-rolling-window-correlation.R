@@ -1,13 +1,13 @@
 if (!('mssm_loaded' %in% ls())) {
-  source(here::here('report', 'mssm-tech-report', 'R', '00-load.R'))
+  source(here::here('R', '00-load.R'))
 }
 
 if (!('indices_loaded' %in% ls())) {
-  source(here::here('report', 'mssm-tech-report', 'R', '02-load-indices.R'))
+  source(here::here('R', '02-load-indices.R'))
 }
 
 if (!('size_dat' %in% ls())) {
-  source(here::here('report', 'mssm-tech-report', 'R', '03-age-size-frequencies.R'))
+  source(here::here('R', '03-age-size-frequencies.R'))
 }
 
 # --- Rolling window correlation ---

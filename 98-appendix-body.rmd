@@ -1,10 +1,11 @@
-\blandscape
-
 # Timeline of SMMS survey changes {#app:change-table}
+\begin{landscapepage}
+
+% why is this being turned into a subsection??? I don't know how to fix this.
+%\section{Timeline of SMMS survey changes}\label{app:change-table}
 
 ```{r change-table, echo=FALSE, eval=TRUE}
-
-mssm_survey_changes <- readr::read_csv(here::here('report', 'mssm-tech-report', 'data', 'mssm-survey-changes.csv')) |>
+mssm_survey_changes <- readr::read_csv(here::here('data', 'mssm-survey-changes.csv')) |>
   mutate(across(everything(), ~tidyr::replace_na(.x, ""))) |>
    mutate(across(where(is.character), ~kableExtra::linebreak(.x, linebreaker = "::")))
 
@@ -23,8 +24,7 @@ csasdown::csas_table(mssm_survey_changes, caption = "Summary of changes to the S
   # flextable::width(width = c(1.5, 4.3, 9.3), j = 1:3)
 
 ```
-
-\elandscape
+\end{landscapepage}
 
 \clearpage
 
@@ -43,24 +43,24 @@ Comparison of fish lengths sampled in the Small-mesh Multi-species (SMMS)  and t
 
 ```{r size-time0, fig.cap="(ref:size-time0-cap)"}
 
-knitr::include_graphics(here::here("report/mssm-tech-report/figure/size-time-0.png"), dpi = NA)
+knitr::include_graphics(here::here("figure/size-time-0.png"), dpi = NA)
 
 ```
 
 ```{r size-time1, fig.cap="(ref:size-time1-cap)"}
 
-knitr::include_graphics(here::here("report/mssm-tech-report/figure/size-time-1.png"), dpi = NA)
+knitr::include_graphics(here::here("figure/size-time-1.png"), dpi = NA)
 
 ```
 
 ```{r size-time2, fig.cap="(ref:size-time2-cap)"}
 
-knitr::include_graphics(here::here("report/mssm-tech-report/figure/size-time-2.png"), dpi = NA)
+knitr::include_graphics(here::here("figure/size-time-2.png"), dpi = NA)
 
 ```
 
 ```{r size-time3, fig.cap="(ref:size-time2-cap)"}
 
-knitr::include_graphics(here::here("report/mssm-tech-report/figure/size-time-3.png"), dpi = NA)
+knitr::include_graphics(here::here("figure/size-time-3.png"), dpi = NA)
 
 ```

@@ -13,7 +13,7 @@ Solid orange hexagons from 2013 onwards (after the trawl footprint was frozen) a
 Therefore, visible white hexagons indicate areas of the commercial trawl footprint that have not been fished (by three or more vessels) from 2013 onwards.
 
 ```{r mssm-syn-cpue-map, fig.cap="(ref:mssm-syn-cpue-map)", out.width="100%"}
-knitr::include_graphics(here::here("report/mssm-tech-report/figure/map-mssm-syn-wcvi-cpue-3cd.png"), dpi = 300)
+knitr::include_graphics(here::here("figure/map-mssm-syn-wcvi-cpue-3cd.png"), dpi = 300)
 ```
 
 We calculated design-based indices following a standard depth-stratified mean estimator.
@@ -27,14 +27,12 @@ Six species in the SMMS data did not have catch weights prior to 2003 because th
 For these species, the proportion of positive sets was calculated for 2003 to present.
 However, of these species, only Blackbelly Eelpout met the 5% coverage threshold to be modelled.
 Additionally, in 2022, 64% of the SMMS trawls (57 fishing events) did not have doorspread values and so for these fishing events we calculated the mean doorspread of 2022 and used this for the missing values.
-<!-- MW: What does doorspread look like over the years? -->
-<!-- Below is probably a hamfisted integration of answering this comment -->
 The mean doorspread of the measured values in 2022 was 32.1 m, which was similar to other years where the doorspread was measured using the wireless net monitoring system that was implemented in 2013 (Figure \@ref(fig:doorspread), Table \@ref(tab:change-table)).
 
 (ref:doorspread) Distribution of trawl doorspread (in metres) measured using the wireless net monitoring system that was implemented in 2013 (Figure \@ref(fig:doorspread), Table \@ref(tab:change-table)). Mean doorspreads for years where doorspread was measured are indicated on each panel. In 2016 and 2017, only a single value of doorspread was provided (29.6 m), which is the same value used in years prior to the use of the wireless net monitoring system. 
 
 ```{r doorspread, fig.cap="(ref:doorspread)"}
-knitr::include_graphics(here::here("report/mssm-tech-report/figure/doorspread-hist.png"), dpi = 300)
+knitr::include_graphics(here::here("figure/doorspread-hist.png"), dpi = 300)
 ```
 
 The spatiotemporal models for both the SMMS and SYN WCVI surveys were fit with constant spatial Gaussian Markov random fields (GMRFs) and spatiotemporal GMRFs. 
@@ -67,8 +65,8 @@ However, for most species, the design-based index had more variable annual mean 
 Design-based indices for Yellowtail Rockfish, Bocaccio, Canary Rockfish, and Redstripe Rockfish had the greatest deviations from their respective modelled indices.
 For species with insufficient data for modelling (< 5% positive sets) or where models did not meet convergence checks, we have shown the design-based index on its own for reference (Figure \@ref(fig:design-indices)).
 
-(ref:model-design-indices) Comparison of relative biomass index trends standardised using a spatiotemporal model (green) and design-based (pink) from the Small-mesh Multi-species survey. 
-Time-series with a solid trend line and shaded ribbon for 95% confidence intervals (CI) represent the modelled index, which was predicted on 3 $\times$ 3 km grid (Figure \@ref(fig:historical-grid)).
+(ref:model-design-indices) Comparison of relative biomass index trends standardised using a spatiotemporal model (green) and design-based (pink) from the SMMS survey. 
+Time series with a solid trend line and shaded ribbon for 95% confidence intervals (CI) represent the modelled index, which was predicted on 3 $\times$ 3 km grid (Figure \@ref(fig:historical-grid)).
 Open circles represent design-based mean estimates and vertical lines represent 95% bootstrap CIs.
 Indices have been scaled to have the same geometric mean for each species.
 Vertical axes are scaled between zero and the maximum upper CI value of the modelled index.
@@ -77,11 +75,11 @@ Years before 2003 are shaded grey to indicate that catch observations in the SMM
 'Mean $+$ve sets' is the ratio of the mean number of sets that captured the species of interest to the mean number of sets.
 
 ```{r mssm-model-design, fig.cap="(ref:model-design-indices)", out.width="95%"}
-knitr::include_graphics(here::here("report/mssm-tech-report/figure/index-model-design_pjs-mode.png"), dpi = 300)
+knitr::include_graphics(here::here("figure/index-model-design_pjs-mode.png"), dpi = 300)
 ```
 
 ```{r design-indices, fig.cap="Species with only a design-based index from the SMMS survey. Pink open circles represent mean estimates of relative biomass and vertical lines around the dots represent 95\\% bootstrap confidence intervals. Vertical axes are scaled between zero and the maximum upper confidence interval value of the index. Years before 2003 are shaded grey to indicate that catch observations in the SMMS survey are considered less reliable than modern data.", out.width="100%"}
-knitr::include_graphics(here::here("report/mssm-tech-report/figure/index-mssm-design.png"), dpi = 300)
+knitr::include_graphics(here::here("figure/index-mssm-design.png"), dpi = 300)
 ```
 
 ## Comparison of SMMS to other indices in the same region
@@ -92,41 +90,41 @@ To assess whether lower correlations in earlier years resulted from improvements
 
 Overall, the modelled SMMS indices were more variable, with larger fluctuations over time relative to the other indices (Figures \@ref(fig:mssm-cpue), \@ref(fig:mssm-syn-wcvi), \@ref(fig:mssm-syn-wcvi-mssm)).
 The trends in the SMMS and SYN WCVI indices were similar across more species when we estimated both indices using the same SMMS grid (Figures \@ref(fig:mssm-syn-wcvi-mssm), \@ref(fig:rolling-window-correlation)) than compared to SYN WCVI indices predicted over the full SYN WCVI survey grid (Figure \@ref(fig:mssm-syn-wcvi)).
-This is expected given that using the same grid better captures matching spatial patterns and covariates, such as depth, that can affect species distributions (Figure \@ref(fig:depth-dist)). Twenty out of the twenty-seven species had a correlation $\ge$ 0.5 between the full time-series.
+This is expected given that using the same grid better captures matching spatial patterns and covariates, such as depth, that can affect species distributions (Figure \@ref(fig:depth-dist)). Twenty out of the twenty-seven species had a correlation $\ge$ 0.5 between the full time series.
 
-The average correlation between the SMMS and the SYN WCVI predicted on the SMMS grid increased early in the time-series (Figure \@ref(fig:rolling-window-correlation)).
+The average correlation between the SMMS and the SYN WCVI predicted on the SMMS grid increased early in the time series (Figure \@ref(fig:rolling-window-correlation)).
 However, the comparison of the SMMS with the SYN WCVI indices coincides with the most important change in 2003 of full species identification and quantification (Table \@ref(tab:change-table)).
 The low correlations in early years appear to be driven by Dover Sole, Slender Sole, English Sole, Pacific Sanddab, and Darkblotched Rockfish, but it is unclear how this could be driven by sorting changes.
 
 The commercial CPUE 3CD data precedes the 2003 change in sorting procedure on the SMMS.
 However, the rolling window correlations were more variable and generally lower between the SMMS and the CPUE 3CD indices (Figure \@ref(fig:rolling-window-correlation)).
 The average correlation between the SMMS and the CPUE 3CD indices was lower in the years prior to 2003 than after, which is driven by low correlations in Bocaccio and Redstripe Rockfish in early years.
-When the full time-series were compared, only 10/21 of the species had correlations $\ge$ 0.5.
+When the full time series were compared, only 10/21 of the species had correlations $\ge$ 0.5.
 
 ```{r mssm-cpue, fig.cap="Comparison of SMMS (green) and CPUE 3CD (orange) indices. Lines and shaded ribbons represent means and 95\\% confidence intervals. The two indices have been scaled to have the same geometric mean. The axes are set to encompass the confidence intervals of the SMMS index. The CPUE 3CD data begin in 1996. Empty panels indicate species that we do not have a model for in the CPUE 3CD data."}
-knitr::include_graphics(here::here("report/mssm-tech-report/figure/index-mssm-model-cpue3CD.png"), dpi = 300)
+knitr::include_graphics(here::here("figure/index-mssm-model-cpue3CD.png"), dpi = 300)
 ```
 
 ```{r mssm-syn-wcvi, fig.cap="Comparison of SMMS (green) and SYN WCVI (purple) indices. Lines and shaded ribbons represent means and 95\\% confidence intervals. The two indices have been scaled to have the same geometric mean in overlapping years. The axes are set to encompass the confidence intervals of the SMMS index. The SYN WCVI data begin in 2004. Empty panels indicate species that we do not have a model for in the SYN WCVI data."}
-knitr::include_graphics(here::here("report/mssm-tech-report/figure/index-mssm-model-syn-wcvi-model.png"), dpi = 300)
+knitr::include_graphics(here::here("figure/index-mssm-model-syn-wcvi-model.png"), dpi = 300)
 ```
 
 ```{r mssm-syn-wcvi-mssm, fig.cap="Comparison of SMMS (green) and SYN WCVI (purple) indices where the SYN WCVI indices have been estimated from model predictions on the SMMS grid. Lines and shaded ribbons represent means and 95\\% confidence intervals. The two indices have been scaled to have the same geometric mean in overlapping years. The axes are set to encompass the confidence intervals of the SMMS index. The SYN WCVI data begin in 2004. Empty panels indicate species that we do not have a model for in the SYN WCVI data."}
-knitr::include_graphics(here::here("report/mssm-tech-report/figure/index-mssm-model-syn-wcvi-model-mssm-grid.png"), dpi = 300)
+knitr::include_graphics(here::here("figure/index-mssm-model-syn-wcvi-model-mssm-grid.png"), dpi = 300)
 ```
 
-<!--{r mssm-syn-zoom, fig.cap="Comparison of indices from the SMMS (green), SYN WCVI predicted on the full SYN WCVI grid (purple), and SYN WCVI predicted on the 3 x 3 SMMS grid (orange). Time-series with a solid trend line and shaded ribbon for 95\\% confidence intervals represent an index that has been standardised with a spatiotemporal model. Vertical axes are scaled between zero and the maximum upper confidence interval value of the modelled index. Both of the SYN WCVI indices are scaled to the same geometric mean as the SMMS index. The axes are set to encompass the confidence intervals of the SMMS index. The SYN WCVI data begin in 2004. Empty panels indicate species that we do not have a model for in the SYN WCVI data."}
+<!--{r mssm-syn-zoom, fig.cap="Comparison of indices from the SMMS (green), SYN WCVI predicted on the full SYN WCVI grid (purple), and SYN WCVI predicted on the 3 x 3 SMMS grid (orange). Time series with a solid trend line and shaded ribbon for 95\\% confidence intervals represent an index that has been standardised with a spatiotemporal model. Vertical axes are scaled between zero and the maximum upper confidence interval value of the modelled index. Both of the SYN WCVI indices are scaled to the same geometric mean as the SMMS index. The axes are set to encompass the confidence intervals of the SMMS index. The SYN WCVI data begin in 2004. Empty panels indicate species that we do not have a model for in the SYN WCVI data."}
 
-knitr::include_graphics(here::here("report/mssm-tech-report/figure/index-mssm-syn-wcvi-mssm-grid-zoom-in.png"), dpi = 300)
+knitr::include_graphics(here::here("figure/index-mssm-syn-wcvi-mssm-grid-zoom-in.png"), dpi = 300)
 -->
+
+```{r rolling-window-correlation, fig.cap="Ten-year rolling window correlations of the modelled SMMS index with the SYN WCVI predicted on the SMMS grid, the SYN WCVI predicted on the SYN WVCVI grid, and with the CPUE 3CD. The x-axis is the first year of the rolling window (e.g., 2010 represents 2010--2020) and the y-axis is the correlation over the 10-year window. The thick blue line is the average correlation of all species over time. Only shown are species that had a correlation $\\geq$ 0.5 when surveys were compared over the full time series. Years before 2003 are shaded grey to indicate the time before complete sorting and species level identification in the SMMS.", out.width = "100%"}
+knitr::include_graphics(here::here("figure/index-correlation.png"), dpi = 300)
+```
 
 ```{r depth-dist, fig.cap="Distribution of depths sampled in the SMMS and SYN WCVI surveys since 2004. Darker colours indicate earlier years."}
 
-knitr::include_graphics(here::here("report/mssm-tech-report/figure/depth-ranges-mssm-syn-wcvi.png"), dpi = 300)
-```
-
-```{r rolling-window-correlation, fig.cap="Ten-year rolling window correlations of the modelled SMMS index with the SYN WCVI predicted on the SMMS grid, the SYN WCVI predicted on the SYN WVCVI grid, and with the CPUE 3CD. The x-axis is the first year of the rolling window (e.g., 2010 represents 2010--2020) and the y-axis is the correlation over the 10-year window. The thick blue line is the average correlation of all species over time. Only shown are species that had a correlation $\\geq$ 0.5 when surveys were compared over the full time series. Years before 2003 are shaded grey to indicate the time before complete sorting and species level identification in the SMMS.", out.width = "100%"}
-knitr::include_graphics(here::here("report/mssm-tech-report/figure/index-correlation.png"), dpi = 300)
+knitr::include_graphics(here::here("figure/depth-ranges-mssm-syn-wcvi.png"), dpi = 300)
 ```
 
 \clearpage

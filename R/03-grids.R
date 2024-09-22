@@ -1,5 +1,5 @@
 if (!('mssm_loaded' %in% ls())) {
-  source(here::here('report', 'mssm-tech-report', 'R', '00-load.R'))
+  source(here::here('R', '00-load.R'))
 }
 
 sf_use_s2(FALSE)
@@ -228,7 +228,8 @@ spatial_shift_plot <-
           axis.text = element_blank(),
           axis.title = element_blank(),
           legend.title = element_blank(),
-          legend.text = element_text(size = 6))
+          legend.text = element_text(size = 6),
+          panel.spacing.y = unit(0, "lines"))
 spatial_shift_plot
 
 ggsave(file.path(mssm_figs, 'grid-spatial-sampling-changes.png'), plot = spatial_shift_plot,

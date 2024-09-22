@@ -1,5 +1,5 @@
 if (!('mssm_loaded' %in% ls())) {
-  source(here::here('report', 'mssm-tech-report', 'R', '00-load.R'))
+  source(here::here('R', '00-load.R'))
 }
 
 # --- Gear change ----
@@ -50,7 +50,9 @@ yearbin_catch <- mssm_dat |>
   distinct(species_common_name, yearbin_catch)
 
 post_2003_spp <- filter(yearbin_catch, yearbin_catch == 0)$species_common_name
-# saveRDS(post_2003_spp, file.path(mssm_dir, 'data-outputs', 'post-2003-spp.rds'))
+if (!file.exists(file.path('data-outputs', 'post-2003-spp.rds'))) {
+  saveRDS(post_2003_spp, file.path('data-outputs', 'post-2003-spp.rds'))
+}
 
 sampling_2003 <-
   mssm_dat |>
@@ -127,7 +129,7 @@ mean_annual_catch_all_spp_df |>
   arrange(order, suborder, species_common_name) |>
 plot_samp_spp() +
   ggtitle("Flatfishes (Pleuronectiformes)")
-ggsave(file.path(mssm_figs, 'sampling-2003-flatfishes.png'), width = 7.5, height = 8)
+ggsave(file.path(mssm_figs, 'sampling-2003-flatfishes.png'), width = 7.5, height = 7.5)
 
 # Other
 mean_annual_catch_all_spp_df |>
@@ -161,25 +163,30 @@ ggsave(file.path(mssm_figs, 'sampling-2003-other.png'), width = 8, height = 10)
 # Comparison of pcod, pollock, tomcod and possible misidentification
 cod_comparison <-
   mssm_dat |>
-    filter(species_common_name %in% c('pacific cod', 'walleye pollock', 'pacific tomcod')) |>
+    filter(species_common_name %in% c('pacific cod', 'pacific tomcod')) |>
     group_by(species_common_name, species_code, year) |>
     summarise(mean_catch = mean(catch, na.rm = TRUE), .groups = 'drop') |>
     left_join(yearbin_catch) |>
     mutate(species_common_name = stringr::str_to_title(species_common_name)) |>
     mutate(species_common_name = forcats::fct_reorder(species_common_name, species_code)) |>
-  ggplot(data = _, aes(x = year, y = mean_catch)) +
+  ggplot(data = _, aes(x = year, y = mean_catch, colour = species_common_name)) +
     geom_rect(aes(xmin = -Inf, xmax = 2003, ymin = -Inf, ymax = Inf), alpha = 0.1, fill = "grey90", colour = NA) +
-    geom_point() +
-    geom_line() +
+    # geom_point(size = 0.5) +
+    geom_line(size = 1) +
     scale_colour_brewer(palette = "Dark2", type = 'qual') +
-    guides(colour = "none") +
+    # guides(colour = "none") +
     #facet_wrap(~ species_common_name, scales = 'free_y', nrow = 3) +
-    facet_wrap(~ species_common_name, nrow = 3) +
-    labs(x =  "Year", y = "Mean annual catch (kg)")
+    # facet_wrap(~ species_common_name, nrow = 3) +
+    labs(x =  "Year", y = "Mean annual catch (kg)", colour = "Species") +
+    xlim(c(1975, 2022)) +
+    guides(colour = guide_legend(byrow = TRUE)) +
+    theme(legend.position = c(0.15, 0.82),
+          legend.key.size = unit(1.2, "lines"),
+          legend.text = element_text(size = 11))
 cod_comparison
 
 ggsave(file.path(mssm_figs, 'sampling-cod.png'), plot = cod_comparison,
-  width = 6, height = 5.3)
+  width = 7, height = 3.5)
 
 # ---- Fish aggregates ---------------------
 # How I got to more-mssm-spp.rds:
@@ -274,14 +281,14 @@ agg_plot <- function(df, ncol = 1, scales = 'free_y') {
   }
 
 # All higher order species aggregations f families caught in MSSM
-spp_group_plot <-
-  more_spp_summ |>
-  filter(species_common_name %in% c('eelpouts', 'flatfishes', 'rockfishes', 'sculpins', 'skates')) |>
-  mutate(species_common_name = str_to_title(species_common_name)) |>
-agg_plot(ncol = 3)
-spp_group_plot
+# spp_group_plot <-
+#   more_spp_summ |>
+#   filter(species_common_name %in% c('eelpouts', 'flatfishes', 'rockfishes', 'sculpins', 'skates')) |>
+#   mutate(species_common_name = str_to_title(species_common_name)) |>
+# agg_plot(ncol = 3)
+# spp_group_plot
 
-ggsave(spp_group_plot, filename = file.path(mssm_figs, 'aggregated-spp-plot.png'), width = 8, height = 4)
+# ggsave(spp_group_plot, filename = file.path(mssm_figs, 'aggregated-spp-plot.png'), width = 8, height = 4)
 
 #
 plot_combined_spp <- function(family, common_name) {
@@ -554,4 +561,3 @@ ggsave(filename = file.path(mssm_figs, 'aggregated-skates-plot.png'),
 # "
 # p_sculpin + p_skate + plot_layout(design = design)
 # ggsave(filename = file.path(mssm_figs, 'agg-sculpin-skate.png'), width = 7, height = 7)
-

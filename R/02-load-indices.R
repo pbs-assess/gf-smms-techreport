@@ -1,5 +1,5 @@
 if (!('mssm_loaded' %in% ls())) {
-  source(here::here('report', 'mssm-tech-report', 'R', '00-load.R'))
+  source(here::here('R', '00-load.R'))
 }
 
 # Load index dataframes ----
@@ -9,23 +9,16 @@ if (!file.exists(file.path(mssm_data, 'mssm-design-inds.rds'))) {
 mssm_d_inds <- spp_hyphens |>
   map_df(\(sp) readRDS(file.path(data_cache, paste0(sp, '.rds')))$survey_index) |>
   filter(survey_abbrev == 'MSSM WCVI') |>
-  mutate(survey_abbrev = "SMMS Design")
+  mutate(survey_abbrev = "SMMS Design") |>
+  rename(species = "species_common_name") |>
+  group_by(species) |>
+  mutate(mean_cv = mean(re, na.rm = TRUE)) |>
+  ungroup() |>
+  filter(year < 2023)
   saveRDS(mssm_d_inds, file = file.path(mssm_data, 'mssm-design-inds.rds'))
 } else {
-  mssm_d_inds <- readRDS(file.path(mssm_data, 'mssm-design-inds.rds')) |>
-    rename(species = "species_common_name") |>
-    group_by(species) |>
-    mutate(mean_cv = mean(re, na.rm = TRUE)) |>
-    ungroup()
+  mssm_d_inds <- readRDS(file.path(mssm_data, 'mssm-design-inds.rds'))
 }
-
-# 2023 data
-# mssm_d_inds <- readRDS(file.path(mssm_data, 'mssm-index-dat.rds')) |>
-#     rename(species = 'species_common_name') |>
-#     mutate(survey_abbrev = "MSSM Design") |>
-#     group_by(species) |>
-#     mutate(mean_cv = mean(re, na.rm = TRUE)) |>
-#     ungroup()
 
 # Load SYN WCVI and MSSM best models
 get_index <- function(folder, spp, .family = "", model_tag = "st-rw") {
@@ -60,6 +53,7 @@ take_min_aic <- function(x) {
   }
 }
 
+# Indices were originally run in the synopsis report with data current to 2023
 syn_wcvi_inds <- tidyr::expand_grid(.s = spp_hyphens, .f = families) |>
   purrr::pmap_dfr(function(.s, .f) {
     filename <- paste0("synoptic-SYN WCVI-", .f)
@@ -69,7 +63,6 @@ syn_wcvi_inds <- tidyr::expand_grid(.s = spp_hyphens, .f = families) |>
   take_min_aic() |>
   ungroup() |>
   mutate(grid = 'SYN WCVI')
-
 
 syn_mssm_grid_inds <- syn_wcvi_inds |>
   distinct(species, family) |>
@@ -85,13 +78,6 @@ syn_mssm_grid_inds <- syn_wcvi_inds |>
   mutate(survey_abbrev = 'SYN WCVI on SMMS Grid') |>
   mutate(grid = 'SMMS 3km')
 
-syn_wcvi_inds$species <- gsub("rougheye blackspotted", "rougheye/blackspotted", syn_wcvi_inds$species)
-syn_wcvi_inds$species <- gsub("north pacific spiny dogfish", "pacific spiny dogfish", syn_wcvi_inds$species)
-syn_mssm_grid_inds$species <- gsub("rougheye blackspotted", "rougheye/blackspotted", syn_mssm_grid_inds$species)
-syn_mssm_grid_inds$species <- gsub("north pacific spiny dogfish", "pacific spiny dogfish", syn_mssm_grid_inds$species)
-
-
-
 mssm_inds <- tidyr::expand_grid(.s = spp_hyphens, .f = families) |>
   purrr::pmap_dfr(function(.s, .f) {
     filename <- paste0("mssm-", .f)
@@ -102,6 +88,11 @@ mssm_inds <- tidyr::expand_grid(.s = spp_hyphens, .f = families) |>
   mutate(survey_abbrev = "SMMS Model") |>
   mutate(stitch_regions = "SMMS Model") |>
   mutate(extreme_uci = max(upperci) > 10 * max(biomass))
+
+syn_wcvi_inds$species <- gsub("rougheye blackspotted", "rougheye/blackspotted", syn_wcvi_inds$species)
+syn_wcvi_inds$species <- gsub("north pacific spiny dogfish", "pacific spiny dogfish", syn_wcvi_inds$species)
+syn_mssm_grid_inds$species <- gsub("rougheye blackspotted", "rougheye/blackspotted", syn_mssm_grid_inds$species)
+syn_mssm_grid_inds$species <- gsub("north pacific spiny dogfish", "pacific spiny dogfish", syn_mssm_grid_inds$species)
 
 # Old tweedie MSSM indexes comparing 2km and 3km
 # mssm_2km_inds <- spp_vector |>

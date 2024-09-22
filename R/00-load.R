@@ -10,21 +10,25 @@ is_rstudio <- function() Sys.getenv("RSTUDIO") == "1"
 future::plan(.future, workers = cores)
 options(future.rng.onMisuse = "ignore")
 
-source(here::here('report', 'mssm-tech-report', 'R', '00-utils.R'))
+source(here::here('R', '00-utils.R'))
 
 # Load data
-# SPLIT OUT TODO: Specify gfsynopsis data cache here when
-data_cache <- here::here('report', 'data-cache-nov-2023')
+# data_cache <- here::here('data', 'data-cache-nov-2023')
+data_cache <- here::here('data', 'data-cache-feb-2024')
 # grid_dir <- here::here(data_cache, 'grids')
-mssm_dir <- here::here('report', 'mssm-tech-report')
-mssm_data <- here::here(mssm_dir, 'data')
-mssm_data_out <- here::here(mssm_dir, 'data-outputs')
+mssm_data <- here::here('data')
+mssm_data_out <- here::here('data-outputs')
 cpue_cache <- here::here(mssm_data, 'cpue-cache')
 stitch_cache <- here::here(mssm_data, 'stitch-cache')
-# syn_sc <- here::here(mssm_dir, 'stitch-cache', 'SYN-WCVI')
-# mssm_sc <- here::here(mssm_dir, 'stitch-cache', 'mssm')
+mssm_figs <- here::here('figure')
+dir.create(data_cache, recursive = TRUE, showWarnings = FALSE)
+dir.create(mssm_data_out, recursive = TRUE, showWarnings = FALSE)
+dir.create(cpue_cache, recursive = TRUE, showWarnings = FALSE)
+dir.create(stitch_cache, recursive = TRUE, showWarnings = FALSE)
+dir.create(mssm_figs, recursive = TRUE, showWarnings = FALSE)
 
-mssm_figs <- here::here(mssm_dir, 'figure')
+# Data in data_cache were extracted from GFBio using:
+# From gfsynopsis::get_data(type = c("A", "B"), path = data_cache, force = FALSE)
 
 survey_cols <- c("SMMS WCVI" = "#1b9e77",
   "SMMS Model" = "#1b9e77",
@@ -101,11 +105,11 @@ mssm_spp <- spp_name_lu |>
 # ------------------------------------------------------------------------------
 # Gather and arrange some metadata
 # WoRMS seems to have more up to date taxonomies
-if (!file.exists(here::here("report", "mssm-tech-report", "data", "mssm-worms.rds"))) {
+if (!file.exists(file.path(mssm_data, "mssm-worms.rds"))) {
   cls <- taxize::classification(mssm_spp$worms_id, db = 'worms')
-  saveRDS(cls, file = here::here("report", "mssm-tech-report", "data", "mssm-worms.rds"))
+  saveRDS(cls, file = file.path(mssm_data, "mssm-worms.rds"))
 } else {
-  cls <- readRDS(here::here("report", "mssm-tech-report", "data", "mssm-worms.rds"))
+  cls <- readRDS(file.path(mssm_data, "mssm-worms.rds"))
 }
 
 mssm_spp <- taxize:::rbind.classification(cls) |>
@@ -195,8 +199,5 @@ mk_mssm_grid <- function(dat_wgs84, grid_spacing) {
 
   list(mssm_grid = mssm_grid, mssm_grid_sf = mssm_grid_sf)
   }
-
-# Get pandalus jordani catches that match with the fish fishing event ids used in the analysis
-pj <- readRDS(file.path(mssm_data, 'pink-shrimp.rds'))
 
 mssm_loaded <- TRUE

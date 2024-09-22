@@ -1,5 +1,5 @@
 if (!('indices_loaded' %in% ls())) {
-  source(here::here('report', 'mssm-tech-report', 'R', '02-load-indices.R'))
+  source(here::here('R', '02-load-indices.R'))
 }
 
 cpue_hex_dat <- function(cpue_dat, bin_width, start_year, n_minimum_vessels = 3) {
@@ -99,7 +99,7 @@ mssm_grid_poly <- mssm_grid_sf |>
   mutate(survey = factor(survey, levels = map_survey_levels))
 
 if (!file.exists(file.path(mssm_data_out, 'cpue-raw.rds'))) {
-  d_cpue <- readRDS(file.path(here::here("report", "data-cache-2024-05"), "cpue-index-dat.rds"))
+  d_cpue <- readRDS(file.path(data_cache, "cpue-index-dat.rds"))
   # data(pmfc, package = "PBSdata") # so that I know what the major regions correspond to
   cpue_raw <- d_cpue |>
     distinct(fishing_event_id, .keep_all = TRUE) |>
@@ -313,8 +313,7 @@ ggplot(data = _) +
   geom_rect(data = . %>% filter(!(tolower(species) %in% unique(syn_wcvi_inds$species))) %>%
     distinct(species, .keep_all = TRUE),
     mapping = aes(xmin = -Inf, xmax = Inf, ymin = -Inf, ymax = Inf),
-    fill = "white", colour = NA) +
-  ylim(c(-0.004, 1.03))
+    fill = "white", colour = NA)
 mssm_syn_inds
 
 ggsave(file.path(mssm_figs, 'index-mssm-model-syn-wcvi-model.png'),
@@ -331,8 +330,7 @@ ggplot(data = _) +
   geom_rect(data = . %>% filter(!(tolower(species) %in% unique(syn_wcvi_inds$species))) %>%
     distinct(species, .keep_all = TRUE),
     mapping = aes(xmin = -Inf, xmax = Inf, ymin = -Inf, ymax = Inf),
-    fill = "white", colour = NA) +
-  ylim(c(-0.004, 1.03))
+    fill = "white", colour = NA)
 mssm_syn_inds_mssm_grid
 
 ggsave(file.path(mssm_figs, 'index-mssm-model-syn-wcvi-model-mssm-grid.png'),
@@ -384,8 +382,7 @@ ggplot(data = _) +
   geom_rect(data = . %>% filter(!(tolower(species) %in% unique(cpue_ind$species))) %>%
     distinct(species, .keep_all = TRUE),
     mapping = aes(xmin = -Inf, xmax = Inf, ymin = -Inf, ymax = Inf),
-    fill = "white", colour = NA) +
-  ylim(c(-0.004, 1.03))
+    fill = "white", colour = NA)
 mssm_cpue_inds
 
 ggsave(file.path(mssm_figs, 'index-mssm-model-cpue3CD.png'), plot = mssm_cpue_inds,

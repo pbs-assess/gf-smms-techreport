@@ -1,9 +1,9 @@
 if (!('mssm_loaded' %in% ls())) {
-  source(here::here('report', 'mssm-tech-report', 'R', '00-load.R'))
+  source(here::here('R', '00-load.R'))
 }
 
 if (!('indices_loaded' %in% ls())) {
-  source(here::here('report', 'mssm-tech-report', 'R', '02-load-indices.R'))
+  source(here::here('R', '02-load-indices.R'))
 }
 
 save_plots_to_pdf <- function(ggplot_list, filename, width = 7, height = 3.7) {

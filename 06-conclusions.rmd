@@ -1,6 +1,6 @@
 # Discussion
 
-Although the SMMS provides the longest continuous bottom trawl time-series for groundfish off the coast of WCVI, several changes to the survey mean that the data are less reliable before 2003. 
+Although the SMMS provides the longest continuous bottom trawl time series for groundfish off the coast of WCVI, several changes to the survey mean that the data are less reliable before 2003. 
 The most important changes are the changes to the sorting protocol in 2001 (full sorting using a conveyor belt) and in 2003 (species-level identification of all the catch).
 These have increased the number of species identified and would affect measures of biodiversity.
 Some species groups, such as the flatfishes and rockfishes, did not appear to have been affected by the sorting protocol changes. 
@@ -13,7 +13,7 @@ In addition to being able to account for changes in the survey spatial coverage 
 It was not possible to rigorously examine the uncertainties associated with the switch to comprehensive species sorting and identification that occurred in 2003 because the best dataset for comparison was the SYN WCVI survey, which only began in 2003.
 Comparison with the SYN WCVI, particularly when using the same survey grid, showed comparable trends (e.g., correlations $\ge$ 0.5) across most species.
 
-The comparison with commercial trawl CPUE in area 3CD---the only dataset that spans the 2003 change in sorting protocol---did not show strong correlations with survey index trends, with only 10/21 species having  $\ge$ 0.5 correlation between time-series. 
+The comparison with commercial trawl CPUE in area 3CD---the only dataset that spans the 2003 change in sorting protocol---did not show strong correlations with survey index trends, with only 10/21 species having  $\ge$ 0.5 correlation between time series. 
 However, due to the differences in spatial coverage of the SMMS and CPUE 3CD and the well-known possibility that the commercial CPUE is not necessarily proportional to abundance [e.g., @harley2001], it is difficult to draw clear conclusions.
 In addition, the commercial CPUE 3CD index was estimated with a GLMM without explicit spatial structure compared to the spatiotemporal model-based SMMS index.
 
@@ -27,7 +27,7 @@ The annual nature of the SMMS survey, compared to the biennial SYN WCVI, means t
 In conclusion, the analyses presented in this report suggest that the SMMS index should be considered as an index of relative biomass in BC groundfish stock assessment.
 Analyses such as those included here can support decisions to include or exclude the SMMS index from assessments for particular stocks.
 The SMMS indices correlated well with the SYN WCVI in overlapping years from 2003 onwards for many groundfish species.
-Evidence for whether the SMMS is a reliable index for most groundfish species is less strong pre 2003, which is unfortunate since a primary use case of the SMMS would be providing a fisheries independent population index that begins before 2003.
+Evidence for whether the SMMS is a reliable index for most groundfish species is less strong pre-2003, which is unfortunate since a primary use case of the SMMS would be providing a fisheries independent population index that begins before 2003.
 The SMMS had lower correlation with commercial CPUE extending back to 1996 than the SYN WCVI from 2003 onwards.
 It is unclear whether this is due to fisheries dependent vs. independent data sources, different standardization methods, different spatial domains, or changes to the SMMS survey from 2003 onwards in catch sorting and sampling.
 Regardless of whether the SMMS is used for years pre-2003, it may be useful to groundfish assessments because it provides an annual index instead of a biennial index, and it tends to sample the same or smaller sized groundfish than the SYN WCVI survey.

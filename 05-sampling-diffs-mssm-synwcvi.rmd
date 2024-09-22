@@ -1,14 +1,10 @@
 # Sampling differences between SMMS and SYN WCVI {#sec:sampling-differences}
 
 All of the groundspecies captured in the SMMS survey are also caught in the SYN WCVI survey (Figure \@ref(fig:encounter-tigure)).
-Most species have similar encounter probabilities across the surveys, with a higher frequency of capturing flatfish species such as Slender Sole, Rex Sole, Dover Sole, and Arrowtooth Flounder.
+Most species have similar encounter probabilities across the surveys.
 However, species such as Eulachon, Flathead Sole, and Blackbelly Eelpout were encountered at least twice as frequently in the SMMS survey than in the SYN WCVI survey (Figure \@ref(fig:encounter-tigure)).
 These species also have much higher densities of fish caught in the SMMS survey than the SYN WCVI survey.
 Differences in encounters and catch densities are slightly smaller when considering only SYN WCVI trawls done in the same depth range as the SMMS survey (75--219 m), which suggests that there are factors other than depth also affecting these differences.
-
-```{r encounter-tigure, fig.cap="Encounter probabilities and mean densities of species that are caught in the SMMS survey and which were encountered in at least 10\\% of trawls in either the SMMS and SYN WCVI survey. Encounters and density are ordered in descending order of values for the SMMS survey. Also included are encounter probabilities and mean densities for a subset of data from the SYN WCVI taken at the same depths as surveyed in the SMMS (75--219 m).", out.width="100%"}
-knitr::include_graphics(here::here("report/mssm-tech-report/figure/mssm-wcvi-tigure_same-depth.png"), dpi = NA)
-```
 
 Thirty-nine species have length samples in both the SMMS and SYN WCVI.
 Shiner perch is the only species that has length samples in the SMMS but not in the SYN WCVI.
@@ -20,6 +16,11 @@ Only seven species have ageing data in the SMMS (Figure \@ref(fig:age-dist)).
 We were able to compare six of them with SYN WCVI (Figure \@ref(fig:age-dist))---Pygmy Rockfish has no ageing data from the SYN WCVI.
 Similar to the length sampling, the lower end of the age range sampled in the SMMS were almost always also sampled in the SYN WCVI.
 
+
+```{r encounter-tigure, fig.cap="Encounter probabilities and mean densities of species that are caught in the SMMS survey and which were encountered in at least 10\\% of trawls in either the SMMS and SYN WCVI survey. Encounters and density are ordered in descending order of values for the SMMS survey. Also included are encounter probabilities and mean densities for a subset of data from the SYN WCVI taken at the same depths as surveyed in the SMMS (75--219 m).", out.width="100%"}
+knitr::include_graphics(here::here("figure/mssm-wcvi-tigure_same-depth.png"), dpi = NA)
+```
+
 ## Investigating whether the SMMS survey can detect early signs of recruitment {#sec:recruitment}
 
 We saw some evidence of recruitment events in the SMMS data that were either not observed in the SYN WCVI (Rougheye/Blackspotted Rockfish Complex, Darkblotched Rockfish), or were observed one year earlier than the SYN WCVI (Bocaccio; Figure \@ref(fig:size-dist-time)).
@@ -28,25 +29,24 @@ Both of these species showed an increase in the relative biomass index from the 
 The large Bocaccio recruitment event in 2016 [@dfo2022bocaccio] was first observed in the SMMS data in 2017 (Figure \@ref(fig:size-dist-time)).
 In 2018, larger but still small/young fish were caught in both the SMMS and SYN WCVI.
 It is possible that this recruitment event would also have been seen if the SYN WCVI survey was conducted in 2017 because fish of this small size (20--25 cm) were encountered in the SYN WCVI survey in 2021 (Figure \@ref(fig:size-dist-time)) (i.e., the large mesh size was not limiting).
-This is an inherent advantage of the SMMS being an annual index instead of the SYN WCVI biennial sampling.
+This early detection is an inherent advantage of the SMMS being an annual index instead of the SYN WCVI biennial sampling.
 
 \clearpage
-
-\blandscape
-
 
 <!--caption-->
 (ref:length-dist) Distribution of sampled lengths for species observed in the SMMS (green) and SYN WCVI (purple) surveys. 
 Large points represent the median length measured with lines ending at the 25th and 75th quantiles. 
-Shown behind these summary points are the raw data of all unique length values. Panels separate species based on the relative percent difference in median observed size between the surveys: (left) species with less than a 10% difference, (middle) species where median observed lengths are larger in the SMMS survey, and (right) species where median observed lengths are larger in the SYN WCVI survey.
+Behind these summary points are the raw data of all unique length values. Panels separate species based on the relative percent difference in median observed size between the surveys: (left) species with less than a 10% difference, and (right) species with larger observed sizes in the SYN WCVI survey.
 Within panels, species are ordered from left to right in increasing difference in median length. 
 Only species that have length data in both the SMMS and SYN WCVI surveys are shown.
 
-```{r length-dist, fig.cap="(ref:length-dist)", out.width="100%"}
-knitr::include_graphics(here::here("report/mssm-tech-report/figure/size-comp.png"), dpi = NA)
+\begin{landscapepage}
+
+```{r length-dist, fig.cap="(ref:length-dist)", out.width="9in", fig.width=9.5, fig.height=4}
+knitr::include_graphics(here::here("figure/size-comp.png"), dpi = NA)
 ```
 
-\elandscape
+\end{landscapepage}
 
 \clearpage
 
@@ -54,20 +54,24 @@ knitr::include_graphics(here::here("report/mssm-tech-report/figure/size-comp.png
 (ref:age-dist-cap) Distribution of sampled age distributions for species observed in the SMMS (green) and SYN WCVI (purple) surveys. Panels separate species based on the relative difference in mean observed age between the surveys (as in Figure \@ref(fig:length-dist)) and species are ordered from left to right in increasing differences in mean length.
 
 ```{r age-dist, fig.cap="(ref:age-dist-cap)"}
-knitr::include_graphics(here::here("report/mssm-tech-report/figure/age-comp.png"), dpi = NA)
+knitr::include_graphics(here::here("figure/age-comp.png"), dpi = NA)
 ```
 
 <!--caption-->
 (ref:size-dist-time) Relative biomass indices (top panel of each species) and the corresponding distribution of sampled lengths (cm) through time (bottom panel of each species) for species observed in the SMMS (green) and SYN WCVI (purple). 
-(Top) Time-series with a solid trend line and shaded ribbon for 95\% confidence intervals represent an index that has been standardised with a spatiotemporal model. 
+(Top) Time series with a solid trend line and shaded ribbon for 95\% confidence intervals represent an index that has been standardised with a spatiotemporal model. 
 Vertical axes are scaled between zero and the maximum upper confidence interval value of the modelled index. 
 Then the two indices have been scaled to have the same geometric mean in overlapping years. 
 The axes are set to encompass the confidence intervals of the SMMS index. 
 (Bottom) Large points represent the median length measured with lines ending at the 25th and 75th quantiles. 
 Shown behind these summary points are the raw data of all unique length values. 
 
-```{r size-dist-time, fig.cap="(ref:size-dist-time)", out.width="100%"}
-knitr::include_graphics(here::here("report/mssm-tech-report/figure/size-time-highlights.png"), dpi = NA)
+\begin{landscapepage}
+
+```{r size-dist-time, fig.cap="(ref:size-dist-time)", out.width="9in", fig.width=9.5, fig.height=6}
+knitr::include_graphics(here::here("figure/size-time-highlights.png"), dpi = NA)
 ```
+
+\end{landscapepage}
 
 \clearpage

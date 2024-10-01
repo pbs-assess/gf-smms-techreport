@@ -67,12 +67,9 @@ The axes are set to encompass the confidence intervals of the SMMS index.
 (Bottom) Large points represent the median length measured with lines ending at the 25th and 75th quantiles. 
 Shown behind these summary points are the raw data of all unique length values. 
 
-\begin{landscapepage}
 
-```{r size-dist-time, fig.cap="(ref:size-dist-time)", out.width="9in", fig.width=9.5, fig.height=6}
+```{r size-dist-time, fig.cap="(ref:size-dist-time)"}
 knitr::include_graphics(here::here("figure/size-time-highlights.png"), dpi = NA)
 ```
-
-\end{landscapepage}
 
 \clearpage

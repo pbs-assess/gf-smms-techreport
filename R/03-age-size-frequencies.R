@@ -76,10 +76,10 @@ size_diff_lu <-
          ) |>
   drop_na(abs_diff) |>
   select(species_common_name, syn_minus_mssm_q50, abs_diff, pct_diff) |>
-  mutate(bigger = case_when(pct_diff > 10 ~ 'SYN WCVI\nlarger',
-                          pct_diff < -10 ~ 'SMMS\nlarger',
+  mutate(bigger = case_when(pct_diff > 10 ~ 'SYN WCVI larger',
+                          pct_diff < -10 ~ 'SMMS larger',
                           TRUE ~ "< 10% difference")) |>
-  mutate(bigger = factor(bigger, levels = c("SMMS\nlarger", "< 10% difference", "SYN WCVI\nlarger"))) |>
+  mutate(bigger = factor(bigger, levels = c("SMMS larger", "< 10% difference", "SYN WCVI larger"))) |>
   arrange(bigger, abs_diff) |>
   mutate(bg = ifelse(row_number() %% 2 == 1, 'grey95', NA),
          species = stringr::str_to_title(species_common_name)) |>

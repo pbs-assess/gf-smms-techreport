@@ -22,7 +22,7 @@ When comparing the SMMS and the SYN WCVI, encounter rates, catch densities, and 
 Of note, Eulachon, Flathead Sole, and Blackbelly Eelpout were encountered at least twice as frequently and at higher densities in the SMMS survey than in the SYN WCVI survey.
 However, the SMMS may have provided an earlier signal of recruitment for several rockfish species given its smaller mesh than the SYN WCVI and annual sampling. 
 There was some evidence of recruitment events in the SMMS data that were either not observed in the SYN WCVI survey or were not observed until later (Rougheye/Blackspotted Rockfish Complex, Darkblotched Rockfish).
-The annual nature of the SMMS survey, compared to the biennial SYN WCVI, means that there is the potential to detect surprise events early (e.g., small Bocaccio captured in 2016) as well as to provide a more continuous data source to stock assessment models.
+The annual nature of the SMMS survey, compared to the biennial SYN WCVI, means that there is the potential to detect surprise events early (e.g., small Bocaccio and Lingcod captured in 2017) as well as to provide a more continuous data source to stock assessment models.
 
 In conclusion, the analyses presented in this report suggest that the SMMS index should be considered as an index of relative biomass in BC groundfish stock assessment.
 Analyses such as those included here can support decisions to include or exclude the SMMS index from assessments for particular stocks.

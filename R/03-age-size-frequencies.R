@@ -324,7 +324,7 @@ mk_p_list <- function(spp, y = c(TRUE, FALSE), x = c(F, F, F, F, T, T), extra_x 
   set_names(spp)
 }
 
-highlight_spp <- c('rougheye/blackspotted rockfish complex', 'darkblotched rockfish', 'bocaccio')
+highlight_spp <- c('rougheye/blackspotted rockfish complex', 'darkblotched rockfish', 'bocaccio', "lingcod")
 
 # Option to be able to order by taxonomic grouping
 # ordered_spp <- readRDS(file.path(mssm_data_out, "mssm-species-by-taxonomic-grouping.rds")) |>
@@ -365,15 +365,19 @@ purrr::map2(arranged_plots2, seq_along(arranged_plots2), ~ggsave(file.path(mssm_
 # Species that might be capturing some extra recruitment in the MSSM compared to SYN WCVI
 highlight_list <- mk_p_list(
   spp = highlight_spp,
-  y = c(T, F, F), x = c(T, T, T),
+  y = c(T, F, T, F), x = c(F, F, T, T),
   ylab = 'Relative biomass index',
   raw_data = TRUE)
 
 # wrap_plots(highlight_list, ncol = 3) /
 # guide_grob  & plot_layout(height = c(1, 1, 1))
 
-(highlight_list[[1]] | highlight_list[[2]] | highlight_list[[3]]) /
-  guide_grob + plot_layout(height = c(1, 0.1))
+# (highlight_list[[1]] | highlight_list[[2]] | highlight_list[[3]]) /
+#   guide_grob + plot_layout(height = c(1, 0.1))
+
+wrap_plots(highlight_list, ncol = 2) /
+  guide_grob + plot_layout(height = c(1, 0.03))
 
 ggsave(filename = file.path(mssm_figs, 'size-time-highlights.png'),
-  width = 10.5, height = 5.6)
+  width = 7.8, height = 7)
+  #width = 10.5, height = 5.6)

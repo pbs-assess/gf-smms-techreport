@@ -191,8 +191,8 @@ ggsave(file.path(mssm_figs, 'sampling-cod.png'), plot = cod_comparison,
 # ---- Fish aggregates ---------------------
 # How I got to more-mssm-spp.rds:
 #fish <- gfdata::run_sql('GFBioSQL', query = "SELECT * FROM SPECIES")
-# saveRDS(fish, file.path(mssm_appendix, 'gfbio_fish_list.rds'))
-# fish <- readRDS(file.path(mssm_appendix, 'gfbio_fish_list.rds') |> as_tibble()
+# saveRDS(fish, file.path(mssm_data, 'gfbio_fish_list.rds'))
+fish <- readRDS(file.path(mssm_data, 'gfbio_fish_list.rds')) |> as_tibble()
 
 # # Look at higher order species classifications and choose species aggregations
 # # to look for in the MSSM data

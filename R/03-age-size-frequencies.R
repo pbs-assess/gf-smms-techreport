@@ -379,5 +379,5 @@ wrap_plots(highlight_list, ncol = 2) /
   guide_grob + plot_layout(height = c(1, 0.03))
 
 ggsave(filename = file.path(mssm_figs, 'size-time-highlights.png'),
-  width = 7.8, height = 7)
+  width = 7.4, height = 8.5)
   #width = 10.5, height = 5.6)

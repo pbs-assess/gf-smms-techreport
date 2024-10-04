@@ -95,15 +95,14 @@ knitr::include_graphics(here::here("figure/sampling-2003-flatfishes.png"), dpi =
 ```
 
 To check if some species were identified at higher taxonomic levels prior to 2003, we extracted data from GFBio for higher order taxonomies of species observed in the SMMS survey since 2003.
-Flatfishes were recorded at the species-level throughout the duration of the SMMS survey (Figure \@ref(fig:spp-aggregate-plot)). 
-Flatfishes were only recorded at the order/family level in 1977 (~23\% of catch) and 2002 (< 0.1\% of catch). 
+Flatfishes were recorded at the species-level throughout the duration of the SMMS survey (Figure \@ref(fig:spp-aggregate-plot)); however, they were recorded at the order/family level in 1977 (~23\% of catch) and 2002 (< 0.1\% of catch). 
 Rockfishes have also been identified to the species-level throughout the SMMS survey (Figure \@ref(fig:spp-aggregate-plot)). 
-In the few years where rockfish were recorded at a higher taxonomic level, the total recorded biomass was < 0.1\%, except for in 2019 (6.7\% of total catch) and 2021 (1.6% of total catch). 
+In ten years, some rockfish were recorded at a higher taxonomic level, the total recorded biomass was < 0.1\%, except for in 2019 (6.7\% of total catch) and 2021 (1.6% of total catch) (\@ref(fig:spp-aggregate-plot)). 
 
 Prior to 2003, when skates, eelpouts, and sculpins were caught, they were recorded at the family level (Figure \@ref(fig:spp-aggregate-plot)).
-In 2002, abnormally high catches of "Eelpouts" and "Skates" were recorded (Figure \@ref(fig:spp-aggregate-plot)).
+In 2002, abnormally high catch weights of "Eelpouts" and "Skates" were recorded (Figure \@ref(fig:spp-aggregate-plot)).
 These outliers do not appear to reflect a decimal recording error, duplicated data (there were three high "Skate" sets in 2002), nor is it likely that it is due to a misidentification since these are easily distinguished from other species groups.
-It is possible that these species aggregates were data entry errors (e.g., species coding errors).
+It is possible that these species aggregates were data entry errors (e.g., species coding errors) or that in the case of skates, a few large skates were caught.
 
 \clearpage
 

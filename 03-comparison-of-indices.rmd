@@ -26,10 +26,6 @@ Models were only fit to species that had a proportion of positive sets $\ge$ 5%.
 Six species in the SMMS data did not have catch weights prior to 2003 because they were likely identified only at a higher taxonomic classification. 
 For these species, the proportion of positive sets was calculated for 2003 to present.
 However, of these species, only Blackbelly Eelpout met the 5% coverage threshold to be modelled.
-Additionally, in 2022, 64% of the SMMS trawls (57 fishing events) did not have doorspread values and so for these fishing events we calculated the mean doorspread of 2022 and used this for the missing values.
-The mean doorspread of the measured values in 2022 was 32.1 m, which was similar to other years where the doorspread was measured using the wireless net monitoring system that was implemented in 2013 (Figure \@ref(fig:doorspread), Table \@ref(tab:change-table)).
-
-(ref:doorspread) Distribution of trawl doorspread (in metres) measured using the wireless net monitoring system that was implemented in 2013 (Figure \@ref(fig:doorspread), Table \@ref(tab:change-table)). Mean doorspreads for years where doorspread was measured are indicated on each panel. In 2016 and 2017, only a single value of doorspread was provided (29.6 m), which is the same value used in years prior to the use of the wireless net monitoring system. 
 
 ```{r doorspread, fig.cap="(ref:doorspread)"}
 knitr::include_graphics(here::here("figure/doorspread-hist.png"), dpi = 300)

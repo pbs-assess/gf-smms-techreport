@@ -13,8 +13,8 @@ options(future.rng.onMisuse = "ignore")
 source(here::here('R', '00-utils.R'))
 
 # Load data
-# data_cache <- here::here('data', 'data-cache-nov-2023')
-data_cache <- here::here('data', 'data-cache-feb-2024')
+data_cache <- here::here('data', 'data-cache-nov-2023')
+# data_cache <- here::here('data', 'data-cache-feb-2024')
 # grid_dir <- here::here(data_cache, 'grids')
 mssm_data <- here::here('data')
 mssm_data_out <- here::here('data-outputs')
@@ -75,11 +75,6 @@ if (!file.exists(file.path(mssm_data, 'spp_dat.rds'))) {
 } else {
   spp_dat <- readRDS(file = file.path(mssm_data, 'spp_dat.rds'))
 }
-
-mssm_no_doorspread <- spp_dat |>
-  filter(survey_abbrev == 'SMMS WCVI', year == 2022) |>
-  distinct(fishing_event_id, .keep_all = TRUE) |>
-  summarise(n = sum(doorspread_m == 0), percent = round(100 * n / n()))
 
 # --- SYN WCVI survey data ---
 sw_dat <- spp_dat |>

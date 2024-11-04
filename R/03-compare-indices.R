@@ -168,33 +168,7 @@ p2 <- plot_survey_regions() +
   theme(plot.tag.location = "plot", plot.tag = element_text(vjust = -1.5))
 
 ggsave(width = 7.7, height = 3.8, filename = file.path(mssm_figs, 'map-mssm-syn-wcvi-cpue-3cd.png'))
-# ----
 
-
-# Check doorspread
-# In 2016 and 2017, doorspreads were assigned 29.6 m,
-
-mean_doorspread <- spp_dat |>
-  filter(survey_abbrev == "SMMS WCVI", year > 2013, doorspread_m != 0) |>
-  filter(!(year %in% 2016:2017)) |>
-  group_by(year) |>
-  summarise(mean_door = round(mean(doorspread_m, na.rm = TRUE), digits = 1),
-    max_count = max(hist(doorspread_m, plot = FALSE)$counts))
-
-spp_dat |>
-  filter(survey_abbrev == "SMMS WCVI") |>
-  filter(!(year %in% 2016:2017)) |>
-  filter(year > 2013, doorspread_m != 0) |> # years where electronic monitoring of doorspread was collectedd
-ggplot() +
-  geom_histogram(aes(x = doorspread_m), fill = "grey50", binwidth = 0.5) +
-  scale_x_continuous(breaks = scales::pretty_breaks(n = 4), minor_breaks = NULL) +
-  facet_wrap(~ year, scales = "free_y") +
-  geom_vline(data = mean_doorspread, aes(xintercept = mean_door)) +
-  geom_text(data = mean_doorspread, aes(x = Inf, y = Inf,
-    label = paste0("mean = ", mean_door), vjust = 2, hjust = 1.05),
-    size = 3.5) +
-  labs(x = "Doorspread (m)", y = "Count")
-ggsave(width = 7.7, height = 3, filename = file.path(mssm_figs, 'doorspread-hist.png'))
 # ----
 # Compare 2km and 3km grid indices
 # grid_bin_ind_plot <- bind_rows(mssm_2km_inds, mssm_3km_inds) |>

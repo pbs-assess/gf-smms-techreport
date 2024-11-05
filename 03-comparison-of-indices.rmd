@@ -27,10 +27,6 @@ Six species in the SMMS data did not have catch weights prior to 2003 because th
 For these species, the proportion of positive sets was calculated for 2003 to present.
 However, of these species, only Blackbelly Eelpout met the 5% coverage threshold to be modelled.
 
-```{r doorspread, fig.cap="(ref:doorspread)"}
-knitr::include_graphics(here::here("figure/doorspread-hist.png"), dpi = 300)
-```
-
 The spatiotemporal models for both the SMMS and SYN WCVI surveys were fit with constant spatial Gaussian Markov random fields (GMRFs) and spatiotemporal GMRFs. 
 If models did not converge [criteria defined in @anderson2024synopsis], then the spatial random field was turned off (i.e., set to zero) and only the spatiotemporal random field was included.
 The spatiotemporal component, however, differed in structure between the surveys: for the SMMS indices, the GMRFs were structured as a random walk to account for the changes in the sampling domain over time.
@@ -114,7 +110,7 @@ knitr::include_graphics(here::here("figure/index-mssm-model-syn-wcvi-model-mssm-
 knitr::include_graphics(here::here("figure/index-mssm-syn-wcvi-mssm-grid-zoom-in.png"), dpi = 300)
 -->
 
-```{r rolling-window-correlation, fig.cap="Ten-year rolling window correlations of the modelled SMMS index with the SYN WCVI predicted on the SMMS grid, the SYN WCVI predicted on the SYN WVCVI grid, and with the CPUE 3CD. The x-axis is the first year of the rolling window (e.g., 2010 represents 2010--2020) and the y-axis is the correlation over the 10-year window. The thick blue line is the average correlation of all species over time. Only shown are species that had a correlation $\\geq$ 0.5 when surveys were compared over the full time series. Years before 2003 are shaded grey to indicate the time before complete sorting and species level identification in the SMMS.", out.width = "100%"}
+```{r rolling-window-correlation, fig.cap="Ten-year rolling window correlations of the modelled SMMS index with the SYN WCVI predicted on the SMMS grid, the SYN WCVI predicted on the SYN WVCVI grid, and with the CPUE 3CD. The x-axis is the first year of the rolling window (e.g., 2010 represents 2010--2019) and the y-axis is the correlation over the 10-year window. The thick blue line is the average correlation of all species over time. Only shown are species that had a correlation $\\geq$ 0.5 when surveys were compared over the full time series. Years before 2003 are shaded grey to indicate the time before complete sorting and species level identification in the SMMS.", out.width = "100%"}
 knitr::include_graphics(here::here("figure/index-correlation.png"), dpi = 300)
 ```
 

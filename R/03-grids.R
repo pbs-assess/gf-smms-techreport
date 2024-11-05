@@ -21,7 +21,7 @@ coast_utm <- gfplot:::load_coastline(xlim_ll, ylim_ll, utm_zone = utm_zone) |>
   st_cast("POLYGON") |>
   mutate(geometry = geometry * 1000) |>
   st_set_crs(32609) |>
-  st_simplify(dTolerance=200)
+  st_simplify(dTolerance = 200)
 
 coast_ll <- coast_utm |> st_transform(crs = 4326)
 
@@ -237,3 +237,93 @@ ggsave(file.path(mssm_figs, 'grid-spatial-sampling-changes.png'), plot = spatial
 
 # ggsave(file.path(mssm_figs, 'grid-spatial-sampling-changes_wide.png'), plot = spatial_shift_plot,
 #   width = 11, height = 7.2)
+
+# Get trawl overlap
+# ------------------------------------------------------------------------------
+# The get_all_* functions get the start and end lat lon values
+# mssm_dat_2024 <- gfdata::get_all_survey_sets(species = get_spp_names()$species_common_name, ssid = c(6, 7))
+# saveRDS(mssm_dat_2024, "~/R_DFO/gfsynopsis/report/scratch-out/mssm-dat-2024-10.RDS")
+new_dat <- readRDS("~/R_DFO/gfsynopsis/report/scratch-out/mssm-dat-2024-10.RDS") |>
+  filter(species_common_name == "pacific cod") |>
+  filter(grouping_desc %in% c("WCVI Shrimp Survey Area 124", "WCVI Shrimp Survey Area 125"))
+
+# Get trawl polygons
+d <- new_dat |>
+  select(species_common_name, fishing_event_id, year, latitude, longitude, latitude_end, longitude_end, doorspread_m) |>
+  drop_na(latitude_end)
+
+# Create LINESTRING geometries
+create_linestring <- function(lon, lat, lon_end, lat_end) {
+  st_linestring(matrix(c(lon, lat, lon_end, lat_end), ncol = 2, byrow = TRUE))
+}
+
+line_geoms <- mapply(
+  create_linestring,
+  d$longitude, d$latitude, d$longitude_end, d$latitude_end,
+  SIMPLIFY = FALSE
+)
+sf_lines <- st_sfc(line_geoms, crs = 4326) |>
+  st_transform(crs = 32630)
+
+# sf_polygons <- st_buffer(sf_lines, dist = 30) # Buffer to typical trawl width
+sf_polygons <- st_buffer(sf_lines, dist = d$doorspread_m) # Buffer to each doorspread
+d_sf <- st_sf(d, geometry = sf_polygons)
+
+# Define a function to calculate the average proportion of overlapping area in a 5-year window
+get_overlap_df <- function(dat) {
+  multipolygons_by_year <- dat |>
+    group_by(year) |>
+    summarize(geometry = st_union(geometry)) |>
+    ungroup() |>
+    st_make_valid()
+
+
+  slices <- split(multipolygons_by_year, multipolygons_by_year$year)
+  slice_combinations <- combn(slices, 2, simplify = FALSE)
+
+  # must calculate each intersection because of the st_intersection and geometrycollection shenanigans
+  overlaps <- lapply(slice_combinations, function(pair) {
+    st_intersection(pair[[1]], pair[[2]])
+  })
+
+  # Combine all overlaps into a single sf object
+  overlap <- do.call(bind_rows, overlaps)
+}
+
+get_areas <- function(d_sf, start_year, end_year) {
+  polygons_window <- d_sf |>
+    filter(year >= start_year & year <= end_year)
+
+  all_df <- polygons_window %>%
+    mutate(area_m2 = st_area(.))
+
+  overlap_df <- get_overlap_df(polygons_window) %>%
+    mutate(area_m2 = st_area(.))
+
+  all_area <- sum(all_df$area_m2)
+  overlap_area <- sum(overlap_df$area_m2)
+
+  summary_df <- tibble(
+    start_year = start_year,
+    end_year = end_year,
+    total_area = all_area,
+    overlap_area = overlap_area,
+    prop_overlap = overlap_area / total_area
+  )
+}
+
+# Apply the function in rolling 5-year windows
+start_year <- min(d_sf$year)
+end_year <- max(d_sf$year)
+rolling_windows <- seq(start_year, end_year - 10)
+
+prop_overlap <- purrr::map_dfr(rolling_windows, function(start) {
+  message(start)
+  end <- start + 9
+  get_areas(d_sf, start, end)
+})
+
+ggplot(data = prop_overlap, aes(x = start_year, y = units::drop_units(prop_overlap))) +
+  geom_point() +
+  labs(x = "Start year of 10-year rolling window", y = "Proportion of trawl overlap")
+ggsave(file.path(mssm_figs, 'sampling-overlap-10year-window.png'), width = 5, height = 4)

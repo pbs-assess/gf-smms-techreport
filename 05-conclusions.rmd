@@ -8,7 +8,13 @@ Meanwhile, species observations for skates, eelpouts, and sculpins are only avai
 An additional uncertainty is the net change that occurred in 2006, which did not have sufficient calibration tows to include in index-standardization models for groundfish or to critically assess the effect on groundfish catchability or gear selectivity. 
 
 When we compared spatiotemporal model-based indices of relative population biomass with traditional design-based indices, we found that the trends in each species were similar but the design-based index typically had more variable mean annual estimates and larger uncertainties compared with the modelled index.
-In addition to being able to account for changes in the survey spatial coverage over time, these results suggest a model-based approach to index standardization is better suited for calculating indices for groundfish than a design-based approach for the SMMS survey. 
+Spatiotemporal models, which account for spatial correlation, have an advantage over design-based indices as they can be applied to both fixed-station designs [e.g., @webster2020] and to random sampling designs. 
+They can be used when sampling locations vary over time, which occurs in the SMMS survey, where there is inter-annual variability in sampling locations over time. 
+This suggests that a model-based approach to index standardization is better suited for calculating indices for groundfish than a design-based approach for the SMMS survey. 
+Repeated surveys at fixed-stations could result in localised depletion of groundfish species, particularly species that have long lifespans and high site fidelity.
+The spatiotemporal models in this report do not account for possible local depletion, which would negatively bias estimates of abundance.
+This bias would stronger in recent years, as trawl overlap in 10-year spans has increased to ~50\% in a 10-year time period since 2009. 
+However, prior to 2009, the consistency of trawl overlap was low (< 30\%). 
 
 It was not possible to rigorously examine the uncertainties associated with the switch to comprehensive species sorting and identification that occurred in 2003 because the best dataset for comparison was the SYN WCVI survey, which only began in 2003.
 Comparison with the SYN WCVI, particularly when using the same survey grid, showed comparable trends (e.g., correlations $\ge$ 0.5) across most species.

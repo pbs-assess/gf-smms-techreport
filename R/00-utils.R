@@ -57,7 +57,6 @@ prep_mssm_dat <- function(survey_dat) {
     # is not retrieved in data call used for 2023 report.
     #filter(grepl('WCVI Shrimp Survey Area 124|125', grouping_desc)) |>
     sdmTMB::add_utm_columns(c("longitude", "latitude"), utm_crs = 32609) |>
-    # @FIXME: area swept has been or will be added to gfdata function
     dplyr::mutate(
       area_swept1 = doorspread_m * (speed_mpm * duration_min),
       area_swept2 = tow_length_m * doorspread_m,

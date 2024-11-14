@@ -347,14 +347,19 @@ guide_grob <- plot_size_time(sp, raw_data = TRUE, no_guides = FALSE) |>
 #   width = 7.8, height = 9)
 
 # Breaking it up this way means the title page of the appendix has the smaller panel of plots
-arranged_plots1 <- size_p_list[1:4] %>%
+arranged_plots1 <- mk_p_list(spp = size_summary_spp[!(size_summary_spp %in% highlight_spp)][1:4],
+  y = c(T, F, T, F), x = c(F, F, T, T),
+  extra_x = c(T, T), raw_data = TRUE) %>%
   split((seq_along(.) - 1) %/% plots_per_page) %>%
   map(~wrap_plots(.x, ncol = 2) / guide_grob + plot_layout(height = c(1, 0.03)))
 arranged_plots1
 ggsave(filename = file.path(mssm_figs, paste0('size-time-', 0, '.png')),
   width = 7.8, height = 7)
 
-arranged_plots2 <- size_p_list[-(1:4)] %>%
+arranged_plots2 <- #size_p_list[-(1:4)] %>%
+  mk_p_list(spp = size_summary_spp[!(size_summary_spp %in% highlight_spp)][-(1:4)],
+  y = c(T, F, T, F, T, F), x = c(F, F, F, F, T, T),
+  extra_x = c(T, T), raw_data = TRUE) %>%
   split((seq_along(.) - 1) %/% plots_per_page) %>%
   #map(~c(.x, rep_len(list(plot_spacer()), plots_per_page - length(.x)))) %>%
   map(~wrap_plots(.x, ncol = 2) / guide_grob + plot_layout(height = c(1, 0.03)))

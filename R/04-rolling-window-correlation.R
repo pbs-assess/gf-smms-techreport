@@ -27,13 +27,13 @@ get_mssm_cor <- function(mssm_index_type, comp_index_type, cor_thresh = 0.5, win
   }
   spp_intersect <- stringr::str_to_title(spp_intersect)
 
-
   mssm_cor_df <- raw_inds |>
     filter(species %in% spp_intersect,
            survey_abbrev %in% c(mssm_index_type, comp_index_type),
            year >= year_cutoff) |>
     select(species, year, biomass, survey_abbrev) |>
-    tidyr::pivot_wider(names_from = survey_abbrev, values_from = biomass)
+    tidyr::pivot_wider(names_from = survey_abbrev, values_from = biomass) |>
+    drop_na()
   mssm_cor_list <- split(x = mssm_cor_df, mssm_cor_df$species) |>
     map(\(x) select(x, -species) |> arrange(year)) %>%
     keep(~ nrow(.x) > 0)
@@ -123,19 +123,19 @@ ggplot(aes(x = start_year, y = cor_vals)) +
     aes(xmin = -Inf, xmax = 2003, ymin = -Inf, ymax = Inf),
     fill = "gray85", alpha = 0.4) +
   geom_point(data = cor_df |> group_by(comp) |> slice(which.max(start_year)) |>
-    mutate(start_year = start_year + 6), alpha = 0) +  # variable x limit increaser
+    mutate(start_year = start_year + 9), alpha = 0) +  # variable x limit increaser
   geom_hline(yintercept = 0, colour = 'grey50') +
   geom_line(aes(colour = species)) +
   geom_smooth(se = FALSE) +
   guides(colour = "none") +
   facet_wrap(~ comp, scale = 'free_x') +
-  scale_x_continuous(breaks = scales::pretty_breaks()) +
+  scale_x_continuous(breaks = scales::pretty_breaks(), expand = c(0, 0)) +
   coord_cartesian(clip = "on") +
     ggrepel::geom_text_repel(
     data = cor_df %>% group_by(comp, species) %>% slice(which.max(start_year)),
     aes(label = species, x = start_year, colour = species),
     size = 3.2, hjust = 'left', segment.color = 'grey85',
-    nudge_x = 0.3, box.padding = 0.1, point.padding = 0.5,
+    nudge_x = 0.5, box.padding = 0.1, point.padding = 0.5,
     direction = "y"
   ) +
   labs(x = "Start year of 10-year rolling window",
@@ -144,7 +144,7 @@ ggplot(aes(x = start_year, y = cor_vals)) +
 cor_plot
 
 ggsave(file.path(mssm_figs, 'index-correlation.png'), plot = cor_plot,
-  width = 10.6, height = 5.2)
+  width = 10.6, height = 5.1)
 
 # ------ Mean correlation ~ size -------
 full_cor |>

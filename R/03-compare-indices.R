@@ -291,7 +291,7 @@ ggplot(data = _) +
 mssm_syn_inds
 
 ggsave(file.path(mssm_figs, 'index-mssm-model-syn-wcvi-model.png'),
-  width = 7.5, height = 9.5)
+  width = 7.9, height = 9.5)
 
 mssm_syn_inds_mssm_grid <- max_ci_scaled |>
   filter(comp == c("SMMS Model-SYN WCVI on SMMS Grid")) |>
@@ -308,7 +308,7 @@ ggplot(data = _) +
 mssm_syn_inds_mssm_grid
 
 ggsave(file.path(mssm_figs, 'index-mssm-model-syn-wcvi-model-mssm-grid.png'),
-  width = 7.5, height = 9.5)
+  width = 7.9, height = 9.5)
 
 # mssm_syn_grid_zoom_in <- tibble(
 #   'survey1' = rep('SMMS Model', 2),
@@ -360,4 +360,4 @@ ggplot(data = _) +
 mssm_cpue_inds
 
 ggsave(file.path(mssm_figs, 'index-mssm-model-cpue3CD.png'), plot = mssm_cpue_inds,
-  width = 7.5, height = 9.5)
+  width = 7.9, height = 9.5)

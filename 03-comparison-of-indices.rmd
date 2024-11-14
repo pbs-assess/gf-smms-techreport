@@ -93,15 +93,15 @@ However, the rolling window correlations were more variable and generally lower 
 The average correlation between the SMMS and the CPUE 3CD indices was lower in the years prior to 2003 than after, which is driven by low correlations in Bocaccio and Redstripe Rockfish in early years.
 When the full time series were compared, only 10/21 of the species had correlations $\ge$ 0.5.
 
-```{r mssm-cpue, fig.cap="Comparison of SMMS (green) and CPUE 3CD (orange) indices. Lines and shaded ribbons represent means and 95\\% confidence intervals. The two indices have been scaled to have the same geometric mean. The axes are set to encompass the confidence intervals of the SMMS index. The CPUE 3CD data begin in 1996. Empty panels indicate species that we do not have a model for in the CPUE 3CD data."}
+```{r mssm-cpue, fig.cap="Comparison of SMMS (green) and CPUE 3CD (orange) indices. Lines and shaded ribbons represent means and 95\\% confidence intervals. The two indices have been scaled to have the same geometric mean. The axes are set to encompass the confidence intervals of the SMMS index. The CPUE 3CD data begin in 1996. Empty panels indicate species that we do not have a model for in the CPUE 3CD data.", out.width="100%"}
 knitr::include_graphics(here::here("figure/index-mssm-model-cpue3CD.png"), dpi = 300)
 ```
 
-```{r mssm-syn-wcvi, fig.cap="Comparison of SMMS (green) and SYN WCVI (purple) indices. Lines and shaded ribbons represent means and 95\\% confidence intervals. The two indices have been scaled to have the same geometric mean in overlapping years. The axes are set to encompass the confidence intervals of the SMMS index. The SYN WCVI data begin in 2004. Empty panels indicate species that we do not have a model for in the SYN WCVI data."}
+```{r mssm-syn-wcvi, fig.cap="Comparison of SMMS (green) and SYN WCVI (purple) indices. Lines and shaded ribbons represent means and 95\\% confidence intervals. The two indices have been scaled to have the same geometric mean in overlapping years. The axes are set to encompass the confidence intervals of the SMMS index. The SYN WCVI data begin in 2004. Empty panels indicate species that we do not have a model for in the SYN WCVI data.", out.width="100%"}
 knitr::include_graphics(here::here("figure/index-mssm-model-syn-wcvi-model.png"), dpi = 300)
 ```
 
-```{r mssm-syn-wcvi-mssm, fig.cap="Comparison of SMMS (green) and SYN WCVI (purple) indices where the SYN WCVI indices have been estimated from model predictions on the SMMS grid. Lines and shaded ribbons represent means and 95\\% confidence intervals. The two indices have been scaled to have the same geometric mean in overlapping years. The axes are set to encompass the confidence intervals of the SMMS index. The SYN WCVI data begin in 2004. Empty panels indicate species that we do not have a model for in the SYN WCVI data."}
+```{r mssm-syn-wcvi-mssm, fig.cap="Comparison of SMMS (green) and SYN WCVI (purple) indices where the SYN WCVI indices have been estimated from model predictions on the SMMS grid. Lines and shaded ribbons represent means and 95\\% confidence intervals. The two indices have been scaled to have the same geometric mean in overlapping years. The axes are set to encompass the confidence intervals of the SMMS index. The SYN WCVI data begin in 2004. Empty panels indicate species that we do not have a model for in the SYN WCVI data.", out.width="100%"}
 knitr::include_graphics(here::here("figure/index-mssm-model-syn-wcvi-model-mssm-grid.png"), dpi = 300)
 ```
 
@@ -110,9 +110,13 @@ knitr::include_graphics(here::here("figure/index-mssm-model-syn-wcvi-model-mssm-
 knitr::include_graphics(here::here("figure/index-mssm-syn-wcvi-mssm-grid-zoom-in.png"), dpi = 300)
 -->
 
+\begin{landscapepage}
+
 ```{r rolling-window-correlation, fig.cap="Ten-year rolling window correlations of the modelled SMMS index with the SYN WCVI predicted on the SMMS grid, the SYN WCVI predicted on the SYN WVCVI grid, and with the CPUE 3CD. The x-axis is the first year of the rolling window (e.g., 2010 represents 2010--2019) and the y-axis is the correlation over the 10-year window. The thick blue line is the average correlation of all species over time. Only shown are species that had a correlation $\\geq$ 0.5 when surveys were compared over the full time series. Years before 2003 are shaded grey to indicate the time before complete sorting and species level identification in the SMMS.", out.width = "100%"}
 knitr::include_graphics(here::here("figure/index-correlation.png"), dpi = 300)
 ```
+
+\end{landscapepage}
 
 ```{r depth-dist, fig.cap="Distribution of depths sampled in the SMMS and SYN WCVI surveys since 2004. Darker colours indicate earlier years."}
 

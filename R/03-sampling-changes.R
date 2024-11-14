@@ -390,7 +390,7 @@ spp_group_plot2 <-
     guides(colour = guide_legend(override.aes = list(shape = c(17, 19), size = 2)))
 spp_group_plot2
 
-ggsave(filename = file.path(mssm_figs, 'aggregated-id-level-plot.png'), width = 10, height = 6.2)
+ggsave(filename = file.path(mssm_figs, 'aggregated-id-level-plot.png'), width = 7.7, height = 7.5)
 
 dat |>
   select(-mean_catch, -shape, -fill) |>

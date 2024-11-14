@@ -46,7 +46,7 @@ knitr::include_graphics(here::here("figure/grid-spatial-sampling-changes.png"), 
 <!-- caption -->
 (ref:trawl-overlap) Proportion of trawl polygons (doorspread * distance travelled) that overlap within 10-year rolling windows. The x-axis is the first year of the rolling window (e.g., 2010 represents 2010--2019) and the y-axis is the proportion of the area where any trawl paths overlap relative to the total trawl footprint in the 10 year window. 
 
-```{r trawl-overlap, fig.cap="(ref:trawl-overlap)"}
+```{r trawl-overlap, fig.cap="(ref:trawl-overlap)", out.width="4.8in", fig.width=4.8, fig.height=3.9}
 knitr::include_graphics(here::here("figure/sampling-overlap-10year-window.png"), dpi = NA)
 ```
 

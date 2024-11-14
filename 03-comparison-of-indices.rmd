@@ -40,7 +40,7 @@ For the SMMS, the sampling domain was defined by first creating a 3 $\times$ 3 k
 Any grid cell that intersected with more than one survey location was retained.
 Then we subsetted this grid to cells that were last sampled between 2009 and 2021 (Figure \@ref(fig:historical-grid)).
 This time period covered the most consistently sampled locations in recent years.
-In 2022, additional stations were sampled that had been either infrequently sampled or not sampled since 1975; so these grid cells were not used to estimate a biomass index.
+In 2022 and 2023, additional stations were sampled that had been either infrequently sampled or not sampled since 1975; so these grid cells were not used to estimate a biomass index.
 For the SYN WCVI, we compared indices predicted on the standard 2 $\times$ 2 km grid covering the extent of the SYN WCVI sampling domain, but also on the 3 $\times$ 3 km SMMS grid. 
 
 We derived standardised commercial catch per unit effort (CPUE) indices from [@anderson2024synopsis] outputs using methods described in [@anderson2019synopsis Appendix D].

@@ -13,8 +13,7 @@ mssm_d_inds <- spp_hyphens |>
   rename(species = "species_common_name") |>
   group_by(species) |>
   mutate(mean_cv = mean(re, na.rm = TRUE)) |>
-  ungroup() |>
-  filter(year < 2023)
+  ungroup()
   saveRDS(mssm_d_inds, file = file.path(mssm_data, 'mssm-design-inds.rds'))
 } else {
   mssm_d_inds <- readRDS(file.path(mssm_data, 'mssm-design-inds.rds'))

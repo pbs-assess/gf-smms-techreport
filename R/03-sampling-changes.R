@@ -178,11 +178,12 @@ cod_comparison <-
     #facet_wrap(~ species_common_name, scales = 'free_y', nrow = 3) +
     # facet_wrap(~ species_common_name, nrow = 3) +
     labs(x =  "Year", y = "Mean annual catch (kg)", colour = "Species") +
-    xlim(c(1975, 2022)) +
+    xlim(c(1975, 2023)) +
     guides(colour = guide_legend(byrow = TRUE)) +
     theme(legend.position = c(0.15, 0.82),
           legend.key.size = unit(1.2, "lines"),
-          legend.text = element_text(size = 11))
+          legend.text = element_text(size = 11)) +
+    coord_cartesian(expand = FALSE)
 cod_comparison
 
 ggsave(file.path(mssm_figs, 'sampling-cod.png'), plot = cod_comparison,
@@ -416,7 +417,6 @@ select_simple <- function(df) {
 # No answer to why
 eelpouts_group <- more_spp |> filter(species_common_name == 'eelpouts') |>
   select_simple() |>
-  filter(year < 2023) |>
   mutate(id_level = 'Family')
 eelpouts_spp <- mssm_dat |>
   left_join(gfsynopsis::get_spp_names()) |>
@@ -452,7 +452,6 @@ ggplot(aes(x = year, y = catch_weight)) +
 # - Does not look like there are any duplicate fishing events
 skates_group <- more_spp |> filter(species_common_name == 'skates') |>
   select_simple() |>
-  filter(year < 2023) |>
   mutate(id_level = 'Family')
 skates_spp <- mssm_dat |>
   left_join(gfsynopsis::get_spp_names()) |>

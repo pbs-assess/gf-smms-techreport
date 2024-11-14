@@ -13,7 +13,7 @@ options(future.rng.onMisuse = "ignore")
 source(here::here('R', '00-utils.R'))
 
 # Load data
-data_cache <- here::here('data', 'data-cache-nov-2023')
+data_cache <- here::here('data', 'data-cache-2024-10')
 # data_cache <- here::here('data', 'data-cache-feb-2024')
 # grid_dir <- here::here(data_cache, 'grids')
 mssm_data <- here::here('data')

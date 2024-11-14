@@ -207,7 +207,7 @@ ggsave(file.path(mssm_figs, 'age-comp.png'), plot = age_comp, width = 5.8, heigh
 
 # ------------------------------------------------------------------------------
 # ---- Look at size distributions at pulses --------
-#- scaled to geomean (2003 - 2022)
+#- scaled to geomean (2003 - 2023)
 plot_size_time <- function(sp, raw_data = FALSE, no_guides = TRUE,
   y_title = TRUE, x_title = TRUE, ylab = 'Relative biomass\nindex') {
   buffer <- 0.4
@@ -225,7 +225,7 @@ plot_size_time <- function(sp, raw_data = FALSE, no_guides = TRUE,
       ggtitle(stringr::str_to_title(sp)) +
       guides(colour = 'none', fill = 'none') +
       scale_y_continuous(breaks = c(0, 0.5, 1)) +
-      coord_cartesian(xlim = c(2004 - buffer, 2022 + buffer),
+      coord_cartesian(xlim = c(2004 - buffer, 2023 + buffer),
         ylim = (c(-0.004, 1.03)),
         expand = FALSE) +
       gfplot::theme_pbs(base_size = 11) +
@@ -276,7 +276,7 @@ plot_size_time <- function(sp, raw_data = FALSE, no_guides = TRUE,
     scale_fill_manual(values = c('#c3f5e6', "#8581bc"), guide = "legend") +
     labs(x = "Year", y = 'Length (cm)', colour = "Survey") +
     guides(fill = 'none') +
-    coord_cartesian(xlim = c(2004 - buffer, 2022 + buffer), expand = FALSE)
+    coord_cartesian(xlim = c(2004 - buffer, 2023 + buffer), expand = FALSE)
 
   (p1 / p2) + plot_layout(guides = "collect") & theme(legend.position = 'bottom')
 

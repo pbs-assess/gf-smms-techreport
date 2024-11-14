@@ -1,6 +1,6 @@
 # Summary of changes to the SMMS survey and implications for groundfish indices {#sec:summary-of-changes}
 
-To highlight changes that could affect interpretation of the groundfish data, we extracted data from the GFBio database for 1975--2022 [@databases2023].
+To highlight changes that could affect interpretation of the groundfish data, we extracted data from the GFBio database for 1975--2023 [@databases2023].
 A publicly available dataset is also available on the Ocean Biodiversity Information System (OBIS) [@mssm2022obis].
 
 ## Survey timing and area
@@ -16,7 +16,7 @@ Between 1975 and 1977, there was a noticeable shift in sampling locations relati
 It is possible that this reflects surveys used to establish the extent of the shrimping grounds (Personal communication: D.T. Rutherford). 
 This could also be the result of using the less accurate Loran A navigation system or bias in the conversion.
 
-In 2022, sampling was extended eastward and northward to cover the original extent better than any year since 1975 (Figure \@ref(fig:spatial-shift)).
+Since 2022, sampling was extended eastward and northward to cover the original extent better than any year since 1975 (Figure \@ref(fig:spatial-shift)).
 Changes in spatial coverage over time mean that an index standardized using a model-based approach may be better suited for calculating an index over the full time series than a design-based index.
 
 ```{r historical-grid, fig.cap="Grid coverage based on the year a grid cell was last sampled. Darker shades indicate more recent years (e.g., the modern sampling grid 2009 - 2021) and lighter shades correspond to changes in navigation systems (1979 and 1998). Grid cells are 3 x 3 km area, and depth contours are shown at 100 m, 200 m, 500 m, and 1000 m."}

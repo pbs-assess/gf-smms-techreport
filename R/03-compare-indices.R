@@ -30,7 +30,7 @@ cpue_hex_dat <- function(cpue_dat, bin_width, start_year, n_minimum_vessels = 3)
 }
 
 ind_layers <- function(colours = survey_cols, ncol = 3,
-  xlim = c(1975 - 0.75, 2022 + 0.75), breaks = 10, hide_y = TRUE,
+  xlim = c(1975 - 0.75, 2023 + 0.75), breaks = 10, hide_y = TRUE,
   add_lines = TRUE, ribbon_alpha = 0.3) {
   layers <- list(
       show_grid_lines(xlim, breaks),
@@ -62,7 +62,7 @@ ind_layers <- function(colours = survey_cols, ncol = 3,
   return(layers)
 }
 
-show_grid_lines <- function(xlim = c(1975 - 0.2, 2022 + 0.2), breaks = 10)
+show_grid_lines <- function(xlim = c(1975 - 0.2, 2023 + 0.2), breaks = 10)
   list(geom_vline(xintercept = seq(xlim[1], xlim[2]), col = "grey96", lwd = 0.3),
        geom_vline(xintercept = seq(gfplot:::mround(xlim[1], breaks), xlim[2], breaks),
         col = "grey93")

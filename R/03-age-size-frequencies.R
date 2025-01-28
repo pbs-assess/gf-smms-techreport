@@ -209,7 +209,7 @@ ggsave(file.path(mssm_figs, 'age-comp.png'), plot = age_comp, width = 5.8, heigh
 # ---- Look at size distributions at pulses --------
 #- scaled to geomean (2003 - 2023)
 plot_size_time <- function(sp, raw_data = FALSE, no_guides = TRUE,
-  y_title = TRUE, x_title = TRUE, ylab = 'Relative biomass\nindex') {
+  y_title = TRUE, x_title = TRUE, ylab = 'Relative biomass index') {
   buffer <- 0.4
 
   p1 <- scale_geo_design(raw_inds |> filter(species %in% spp_in_mssm, year > 2003),

@@ -88,6 +88,8 @@ mssm_inds <- tidyr::expand_grid(.s = spp_hyphens, .f = families) |>
   mutate(stitch_regions = "SMMS Model") |>
   mutate(extreme_uci = max(upperci) > 10 * max(biomass))
 
+mssm_inds$species <- gsub("rougheye blackspotted", "rougheye/blackspotted", mssm_inds$species)
+mssm_inds$species <- gsub("north pacific spiny dogfish", "pacific spiny dogfish", mssm_inds$species)
 syn_wcvi_inds$species <- gsub("rougheye blackspotted", "rougheye/blackspotted", syn_wcvi_inds$species)
 syn_wcvi_inds$species <- gsub("north pacific spiny dogfish", "pacific spiny dogfish", syn_wcvi_inds$species)
 syn_mssm_grid_inds$species <- gsub("rougheye blackspotted", "rougheye/blackspotted", syn_mssm_grid_inds$species)

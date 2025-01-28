@@ -77,14 +77,27 @@ knitr::include_graphics(here::here("figure/net-comp.png"), dpi = NA)
 post_2003_spp <- readRDS(here::here("data-outputs/post-2003-spp.rds"))
 ```
 
-The most notable change to catch sorting and sampling occurred from 2001 to 2003. 
-From 2001--present the entire catch was sorted wherever possible and from 2003--present all species were sorted and identified to the species or to the lowest taxonomic level possible [@rutherfordinprep].
-For large volumes of catch, or catches with a large number of small organisms, the total catch was sub-sampled and the total catch was visually estimated or weighed.
+Between 1973 and 2001 the catch sorting protocol remained largely unchanged (Table \@ref(tab:change-table)).
+The haul was deposited on deck where large fish (e.g., North Pacific Spiny Dogfish, Arrowtooth Flounder, etc.,) were removed, sorted, and their weights estimated [@butler1973cruisrep]. 
+The documentation of this is unclear in the trip reports for survey years 1973--1977 [@butler1973cruisrep, @butler1975cruisrep, @boutillier1976cruiserep], but likely this estimation was done by weighing at least one basket of each large fish species and multiplying by the number of remaining baskets of large fish when there were many of these fish [@butler1973cruisrep]. 
+Once large fish were removed from the haul, the remaining mix of shrimp, small fish, and invertebrates were put into tubs and the total number of tubs counted [@butler1973cruisrep].
+One tub was used as a subsample and sorted to species (or higher taxonomic grouping) and weighed.
+Total catch of each species was extrapolated from the tub weights and the number of tubs counted [@butler1973cruisrep].
+Starting in 1978, all catch was weighed where possible. 
+It was specified that large fish were removed from total catch, sorted, placed in tubs, and all were weighed [@boutillier1978cruiserep].
+Similarly, all tubs of remaining catch were weighed (rather than using average basket weight and multiplying by tub count).
+
+The most notable change is that by 2003, the catch sorting protocol changed to identify all organisms to the species-level or to the lowest taxonomic level possible [@rutherfordinprep].
+This affects the ability of this survey to be used to study biodiversity patterns and will limit the length of time series for species that were only identified to higher taxonomic levels prior to 2003.
+A minor additional change was starting in 2001, catch was sorted on a conveyor belt system instead of above deck. 
+For large volumes of catch, or catches with a large number of small organisms, the total catch was subsampled and the total catch was visually estimated or weighed (as done before 2001).
 From 2021 onwards, when the CCGS Franklin vessel was used, the 600 kg bin scale allowed full weighing of most tows instead of visual or other estimation methods for large catches (Table \@ref(tab:change-table); @williams2020).
 
-Prior to 2003, `r length(post_2003_spp)` species had zero catch weights and catch counts.
-Of these, six species were caught regularly: Big Skate, Sandpaper Skate, Longnose Skate, Blackbelly Eelpout, Stripetail Rockfish, and Slim Sculpin (Figures \@ref(fig:sampling-2003-other), \@ref(fig:sampling-2003-rockfishes)).
-All flatfish species caught to date were also caught and recorded prior to 2003 (Figure \@ref(fig:sampling-2003-flatfishes)).
+Prior to 2003 sorting change, only some species were identified to the species-level while others were sorted and counted to higher-level taxonomic groupings. 
+Pre-2003, `r length(post_2003_spp)` species had zero catch weights and catch counts.
+Of these, six species are caught regularly: Big Skate, Sandpaper Skate, Longnose Skate, Blackbelly Eelpout, Stripetail Rockfish, and Slim Sculpin (Figures \@ref(fig:sampling-2003-other), \@ref(fig:sampling-2003-rockfishes)).
+Therefore it is likely that these species were not sorted or counted to the species-level before 2003. 
+Whereas, all flatfish species and all rockfish (except for Stripetail Rockfish) have records before 2003 (Figure \@ref(fig:sampling-2003-flatfishes)).
 
 <!-- caption -->
 (ref:sampling-2003-other) Mean catch per set (kg) by year of non-rockfish and non-flatfish species that were caught in at least three sets in the Small-mesh Multi-species bottom trawl survey. Species are ordered by higher order taxonomic groupings. Grey shading highlights the period prior to full sorting and identification in 2003. The grey vertical line in 2001 indicates a change in sorting protocol where all sorting occurred below deck using a conveyor belt system [@rutherfordinprep].
@@ -108,12 +121,15 @@ knitr::include_graphics(here::here("figure/sampling-2003-rockfishes.png"), dpi =
 knitr::include_graphics(here::here("figure/sampling-2003-flatfishes.png"), dpi = NA)
 ```
 
-To check if some species were identified at higher taxonomic levels prior to 2003, we extracted data from GFBio for higher order taxonomies of species observed in the SMMS survey since 2003.
+To check if what species were only identified at higher taxonomic levels prior to 2003, we extracted data from GFBio for higher order taxonomies of species observed in the SMMS survey since 2003.
 Flatfishes were recorded at the species-level throughout the duration of the SMMS survey (Figure \@ref(fig:spp-aggregate-plot)); however, they were recorded at the order/family level in 1977 (~23\% of catch) and 2002 (< 0.1\% of catch). 
 Rockfishes have also been identified to the species-level throughout the SMMS survey (Figure \@ref(fig:spp-aggregate-plot)). 
-In ten years, some rockfish were recorded at a higher taxonomic level, the total recorded biomass was < 0.1\%, except for in 2019 (6.7\% of total catch) and 2021 (1.6% of total catch) (\@ref(fig:spp-aggregate-plot)). 
+In ten years throughout the time series, some rockfish were recorded at a higher taxonomic level.
+However, the total recorded biomass was < 0.1\%, except for in 2019 (6.7\% of total catch) and 2021 (1.6% of total catch) (\@ref(fig:spp-aggregate-plot)). 
+Therefore, it is likely that flatfish and rockfish catches prior to 2003 are appropriate to include in index estimation.
 
 Prior to 2003, when skates, eelpouts, and sculpins were caught, they were recorded at the family level (Figure \@ref(fig:spp-aggregate-plot)).
+Therefore, these species can only use data from 2003 onwards to estimate indices of abundance.
 In 2002, abnormally high catch weights of "Eelpouts" and "Skates" were recorded (Figure \@ref(fig:spp-aggregate-plot)).
 These outliers do not appear to reflect a decimal recording error, duplicated data (there were three high "Skate" sets in 2002), nor is it likely that it is due to a misidentification since these are easily distinguished from other species groups.
 It is possible that these species aggregates were data entry errors (e.g., species coding errors) or that in the case of skates, a few large skates were caught.

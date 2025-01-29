@@ -2,15 +2,16 @@
 title: |
   "Assessing the quality of groundfish population indices derived from the Small-mesh Multi-species Bottom Trawl Survey"
 french_title: Titre ici (*Nom latin de l'espèce*)
-year: 2024
-report_number: nnn
+year: 2025
+report_number: 3667
 author: |
   Jillian C. Dunic and
   Sean C. Anderson
 author_list: "Dunic, J.C. and Anderson, S.C."
 region: Pacific Region
 french_region: Région du Pacifique
-isbn: ""
+isbn: "978-0-660-75374-4"
+report_DOI: "10.60825/rjyz-8w29"
 address: |
   Pacific Biological Station\
   Fisheries and Oceans Canada, 3190 Hammond Bay Road\

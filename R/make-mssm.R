@@ -6,6 +6,7 @@ source(here::here('R', '03-grids.R'))
 source(here::here('R', '03-mssm-wcvi-encounters.R'))
 source(here::here('R', '03-sampling-changes.R'))
 source(here::here('R', '04-rolling-window-correlation.R'))
+source(here::here('R', '05-qcs.R'))
 
 
 optimize_png <- TRUE

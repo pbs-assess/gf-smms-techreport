@@ -3,6 +3,19 @@
 To highlight changes that could affect interpretation of the groundfish data, we extracted data from the GFBio database for 1975--2023 [@databases2023].
 A publicly available dataset is also available on the Ocean Biodiversity Information System (OBIS) [@mssm2022obis].
 
+Groundfish have been surveyed in six survey areas as part of the SMMS survey; however, this report focuses on the two survey areas that have had the longest continuous survey time series: WCVI Shrimp Survey Area 124 and 125.
+ follow the same survey protocol as areas 124 and 125, and so changes documented here will also apply to those areas.
+WCVI Shrimp Survey Area 123 includes Barkely sound,  and sampling for groundfish started in 1996 (Figure \@ref(fig:survey-area-map)).
+The three survey areas in Queen Charlotte Sound (QCS Shrimp Survey Stratum 1, 2, and 3) are smaller than the WCVI survey areas (Figure \@ref(fig:survey-area-map)). 
+The QCS surveys started in 1998, five vessels were used and the survey sampling was in July---later than the WCVI areas [@boutillier1998]. 
+These QCS data have been included in assessments, but excluded data from 1998 [e.g., @edwards2011; @king2011].
+
+```{r survey-area-map, fig.cap="Small-mesh Multi-species bottom trawl survey areas where groundfish data have been collected. QCS: Queen Charlotte Sound; WCVI: West Coast Vancouver Island."}
+
+knitr::include_graphics(here::here("figure/survey-area-map.png"), dpi = NA)
+
+```
+
 ## Survey timing and area
 
 The SMMS is typically conducted in the last week of April to the first weeks of May with the exception of late surveys in 1985 and 1987 (Table \@ref(tab:change-table) Appendix A).

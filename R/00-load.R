@@ -96,6 +96,7 @@ mssm_dat <- spp_dat |>
 mssm_spp <- spp_name_lu |>
   filter(species_common_name %in% unique(mssm_dat$species_common_name)) |>
   mutate(worms_id = as.numeric(ifelse(species_common_name == "rougheye/blackspotted rockfish complex", 274771, worms_id))) # itis_tsn is just rougheye lookup
+saveRDS(mssm_spp, file.path(mssm_data_out, "smms-spp.rds"))
 
 # ------------------------------------------------------------------------------
 # Gather and arrange some metadata

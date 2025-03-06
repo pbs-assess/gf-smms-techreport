@@ -40,3 +40,15 @@ Regardless of whether the SMMS is used for years pre-2003, it may be useful to g
 As of 2024, there are plans to revise the SMMS survey design.
 If the survey design is revised, future review of the impacts on groundfish indices may be required.
 
+# Acknowledgements
+
+We thank 
+S. Acheson,
+K. Fong,
+D.R. Haggarty
+D.T. Rutherford, and
+M.R. Wyeth,
+for discussions and reviews of earlier drafts that substantially improved this report.
+This document was produced with [csasdown](https://github.com/pbs-assess/csasdown/). 
+Code to reproduce this report is available at <https://github.com/pbs-assess/gf-smms-techreport/>.
+

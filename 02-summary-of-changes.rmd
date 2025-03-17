@@ -8,7 +8,7 @@ The other areas follow the same survey protocol as areas 124 and 125, and so cha
 WCVI Shrimp Survey Area 123 includes Barkely sound, and sampling for groundfish started in 1996 (Figure \@ref(fig:survey-area-map)).
 The three survey areas in Queen Charlotte Sound (QCS Shrimp Survey Stratum 1, 2, and 3) are smaller than the WCVI survey areas (Figure \@ref(fig:survey-area-map)). 
 The QCS surveys started in 1998, five vessels were used, and the survey sampling was in July---later than the WCVI areas [@boutillier1998].
-These QCS data have been included in assessments, although the initial 1999 year has been discarded [e.g., @edwards2011; @king2011].
+These QCS data have been included in assessments, although the initial 1998 year has been discarded [e.g., @edwards2011; @king2011].
 
 ```{r survey-area-map, fig.cap="Small-mesh Multi-species bottom trawl survey areas where groundfish data have been collected. QCS: Queen Charlotte Sound; WCVI: West Coast Vancouver Island."}
 
@@ -106,6 +106,7 @@ A minor additional change was starting in 2001, catch was sorted on a conveyor b
 For large volumes of catch, or catches with a large number of small organisms, the total catch was subsampled and the total catch was visually estimated or weighed (as done before 2001).
 From 2021 onwards, when the CCGS Franklin vessel was used, the 600 kg bin scale allowed full weighing of most tows instead of visual or other estimation methods for large catches (Table \@ref(tab:change-table); @williams2020).
 
+Before 2001, a groundfish expert was not always present on this shrimp-focused survey, which may have reduced the reliability of the groundfish data (Personal communications: D.T. Rutherford).
 Prior to 2003 sorting change, only some species were identified to the species-level while others were sorted and counted to higher-level taxonomic groupings. 
 Pre-2003, `r length(post_2003_spp)` species had zero catch weights and catch counts.
 Of these, six species are caught regularly: Big Skate, Sandpaper Skate, Longnose Skate, Blackbelly Eelpout, Stripetail Rockfish, and Slim Sculpin (Figures \@ref(fig:sampling-2003-other), \@ref(fig:sampling-2003-rockfishes)).
